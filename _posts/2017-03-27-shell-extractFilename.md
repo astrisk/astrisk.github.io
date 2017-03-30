@@ -30,8 +30,9 @@ temp_file="/tmp/var.$$"
 - 示例
 
 {% highlight c %}
-# VAR=hack.fun.book.txt
-#echo ${VAR#*.}  //结果fun.book.txt
-#echo ${VAR##*.} //结果是txt
+
+VAR=hack.fun.book.txt
+echo ${VAR#*.}  //结果fun.book.txt
+echo ${VAR##*.} //结果是txt
 
 {% endhighlight %}
