@@ -13,7 +13,7 @@ tr可以对来自标准输入的字符进行替换，删除，以及压缩。由
 
 {% highlight c %}
 
-\$ tr [OPTION] set1 set2
+$ tr [OPTION] set1 set2
 
 {% endhighlight %}
 
@@ -25,7 +25,7 @@ tr可以对来自标准输入的字符进行替换，删除，以及压缩。由
 
 {% highlight c %}
 
-\$ echo "HELLO WHO IS THIS" | tr 'A-Z' 'a-z'
+$ echo "HELLO WHO IS THIS" | tr 'A-Z' 'a-z'
 
 {% endhighlight %}
 
@@ -33,7 +33,7 @@ tr可以对来自标准输入的字符进行替换，删除，以及压缩。由
 
 {% highlight c %}
 
-\$ echo "Hello 123 world 456" | tr -d [[ :digit: ]]
+$ echo "Hello 123 world 456" | tr -d [[ :digit: ]]
 
 {% endhighlight %}
 
@@ -42,7 +42,7 @@ tr可以对来自标准输入的字符进行替换，删除，以及压缩。由
 
 {% highlight c %}
 
-\$ echo hello 123 world 456 | tr -d -c '0-9 \n'
+$ echo hello 123 world 456 | tr -d -c '0-9 \n'
 
 {% endhighlight %}
 
@@ -52,7 +52,7 @@ tr可以对来自标准输入的字符进行替换，删除，以及压缩。由
 
 {% highlight c %}
 
-\$ echo "hello     wold     1234    6677" | tr -s ' '
+$ echo "hello     wold     1234    6677" | tr -s ' '
 
 {% endhighlight %}
 
@@ -60,14 +60,14 @@ tr可以对来自标准输入的字符进行替换，删除，以及压缩。由
 
 {% highlight c %}
 
-\$ cat sum.txt
+$ cat sum.txt
 1
 2
 3
 4
 5
 
-\$ cat sum.txt | echo $[ $(tr '\n' '+') 0 ]
+$ cat sum.txt | echo $[ $(tr '\n' '+') 0 ]
 
 {% endhighlight %}
 
