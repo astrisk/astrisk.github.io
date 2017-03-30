@@ -1,7 +1,7 @@
 ---
 title:  "用Shell生成临时文件名"
 date:   2017-03-30 13:27:28
-categories: LinuxShell
+categories: LINUXSHELL
 ---
 
 **功能**
