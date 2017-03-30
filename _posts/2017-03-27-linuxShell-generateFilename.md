@@ -1,5 +1,5 @@
 ---
-title:  "SHELL-用%#提取文件名和文件扩展名"
+title:  "SHELL-提取文件名和文件扩展名"
 date:   2017-03-30 14:56:44
 categories: LINUXSHELL
 ---
