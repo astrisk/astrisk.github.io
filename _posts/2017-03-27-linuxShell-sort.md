@@ -1,5 +1,5 @@
 ---
-title:  "SORT"
+title:  "SHELL-SORT"
 date:   2017-03-30 13:57:02
 categories: LINUXSHELL
 ---
