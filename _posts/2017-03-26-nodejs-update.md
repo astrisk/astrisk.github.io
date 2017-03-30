@@ -14,7 +14,7 @@ Nodejs 更新速度非常快，几天没注意就发布了一个版本，而且�
 
 npm update -g
 
-{% highlight c %}
+{% endhighlight %}
 
 **更新nodejs**
 
@@ -27,4 +27,4 @@ npm方式更新
 
 npm install -g n [stable/v0.10.26] # n代表n模块，后面可以跟最新稳定版或具体版本号
 
-{% highlight c %}
+{% endhighlight %}
