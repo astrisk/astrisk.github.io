@@ -1,5 +1,5 @@
 ---
-title:  "SHELL-提取文件名和文件扩展名"
+title:  "SHELL-SPLIT-FILENAME"
 date:   2017-03-30 15:07:02
 categories: LINUXSHELL
 ---
