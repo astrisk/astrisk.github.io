@@ -1,0 +1,37 @@
+title: "Astrisk Blog"
+author: "Astrisk"
+description: "Really cool blog about ... something"
+more: "read more »"
+url: "https://astrisk.github.io"
+baseurl: "" # comment out if in root directory
+
+comments:
+  disqus: "astrisk"
+#  isso: "comments.mysite.org"
+
+style:
+  body: 'white'
+  margin: 0%
+  padding: 20%
+  nav: "#222"
+  articles: 'stripe' # 'light' 'dark' and 'stripe' possible
+  uppercase: true
+
+# see http://fontawesome.io/icons/#brand for all possible icons
+# notice: squared icons only work if supported by font-awesome
+
+links:
+  - github: {url: "https://github.com/astrisk/", square: true}
+  # - reddit: {url: "https://www.reddit.com/user/me/", square: true}
+  # - twitter: {url: "https://twitter.com/me/", square: true}
+  # - facebook: {url: "https://www.facebook.com/me", square: true}
+  # - google-plus: {url: "https://plus.google.com/+me", square: true}
+  # - youtube: {url: "https://www.youtube.com/user/me", square: true}
+  # - tumblr: {url: "http://me.tumblr.com/", square: true}
+  # - steam: {url: "http://steamcommunity.com/id/me/", square: true}
+
+paginate: 10
+excerpt_separator: "\n\n\n" # excerpt ends after two blank lines
+permalink: pretty
+defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]
+gems: [jekyll-feed, jekyll-paginate] # include feed plugin (supported by gh-pages)
