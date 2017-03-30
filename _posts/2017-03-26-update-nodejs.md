@@ -1,7 +1,7 @@
 ---
 title:  "如何完全更新Node.js"
 date:   2017-03-30 13:13:32
-categories: example
+categories: NODEJS
 ---
 
 **背景**

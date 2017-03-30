@@ -1,7 +1,7 @@
 ---
 title:  "动态指定NPM源"
 date:   2017-03-30 13:03:03
-categories: NODE
+categories: NODEJS
 ---
 
 
