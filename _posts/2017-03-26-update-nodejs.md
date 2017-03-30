@@ -15,8 +15,10 @@ npm update -g
 
 **更新nodejs**
 
-  - 源码方式更新：下载最新的源码，然后make install
-  - npm方式：
-	{% highlight c %}
-		npm install -g n [stable/v0.10.26] # n代表n模块，后面可以跟最新稳定版或具体版本号
-	{% highlight c %}
+源码方式更新
+> 下载最新的源码，然后make install
+
+npm方式更新
+{% highlight c %}
+npm install -g n [stable/v0.10.26] # n代表n模块，后面可以跟最新稳定版或具体版本号
+{% highlight c %}
