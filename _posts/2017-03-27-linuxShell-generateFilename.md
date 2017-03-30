@@ -4,7 +4,6 @@ date:   2017-03-30 15:07:02
 categories: LINUXSHELL
 ---
 
-
 **功能**
 
 经常需要提取文件名，或者以xx后缀的扩展名，使用shell可以很方便得实现这个功能。
@@ -21,9 +20,11 @@ categories: LINUXSHELL
 
 {% highlight c %}
 
+
 $ VAR=hack.fun.book.txt
 $ echo ${VAR%.*} //结果是hack.fun.book
 $ echo ${VAR%%.*} //结果是hack
+
 
 {% endhighlight %}
 
@@ -38,8 +39,10 @@ $ echo ${VAR%%.*} //结果是hack
 
 {% highlight c %}
 
+
 $ VAR=hack.fun.book.txt
 $ echo ${VAR$*.}  //结果fun.book.txt
 $ echo ${VAR$$*.} //结果是txt
+
 
 {% endhighlight %}
