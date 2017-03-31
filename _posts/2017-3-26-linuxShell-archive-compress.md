@@ -41,7 +41,6 @@ $  gzip [OPTION] FILE ...
 
 - 示例
 	- 压缩但是不删除源文件
-	- 
 	{% highlight c %}
 
     $  gzip -c FILE > FILE.gz
@@ -94,7 +93,7 @@ $  gzip [OPTION] FILE ...
 
 $  bzip2 [OPTION] FILE ...
 
-{% endhighlight %} 
+{% endhighlight %}
 
 - 常用选项
 	- d :解压，相当于bunzip2
@@ -105,42 +104,39 @@ $  bzip2 [OPTION] FILE ...
 
 - 示例
 	- 压缩并保留源文件
-	
+
 	{% highlight c %}
 
     $  bzip2 -k FILE
 
-    {% endhighlight %} 
-
+    {% endhighlight %}
 
     - 选择最高的压缩比
-    
 
     {% highlight c %}
 
     $  bzip2 -9 FILE
 
-    {% endhighlight %} 
+    {% endhighlight %}
 
     - 解压
-    
 
     {% highlight c %}
 
     $  bzip2 -d FILE.bz2
 
-    {% endhighlight %} 
+    {% endhighlight %}
 
     - 不显式展开的前提下查看文件内容
-    
+
     {% highlight c %}
 
     $  bzcat FILE.bz2
 
-    {% endhighlight %} 
+    {% endhighlight %}
 
 
-**xz/unxz/xzcat** 
+**xz/unxz/xzcat**
 
 	XZ Utils 是为 POSIX 平台开发具有高压缩率的工具。它使用 LZMA2 压缩算法，生成的压缩文件比 POSIX 平台传统使用的 gzip、bzip2 生成的压缩文件更小，而且解压缩速度也很快。最初 XZ Utils 的是基于 LZMA-SDK 开发，但是 LZMA-SDK 包含了一些 WINDOWS 平台的特性，所以 XZ Utils 为以适应 POSIX 平台作了大幅的修改。XZ Utils 的出现也是为了取代 POSIX 系统中旧的 LZMA Utils。压缩的文件名后缀为.xz
     CentOS7已经默认安装了xz,如果是CentOS6或以下的，需要另外安装。
@@ -151,7 +147,7 @@ $  bzip2 [OPTION] FILE ...
 
 $  xz [OPTION] FILE ...
 
-{% endhighlight %} 
+{% endhighlight %}
 
 - 常用选项
 	- d :解压，unxz
@@ -167,7 +163,7 @@ $  xz [OPTION] FILE ...
 
     $  xz -k FILE
 
-	{% endhighlight %} 
+	{% endhighlight %}
 
     - 解压
 
@@ -175,7 +171,7 @@ $  xz [OPTION] FILE ...
 
     $  xz -d FILE.xz
 
-    {% endhighlight %} 
+    {% endhighlight %}
 
     - 不解压，查看文件内容
 
@@ -183,6 +179,6 @@ $  xz [OPTION] FILE ...
 
     $  xzcat FILE.xz
 
-    {% endhighlight %} 
+    {% endhighlight %}
 
-**zip/unzip** 
+**zip/unzip**
