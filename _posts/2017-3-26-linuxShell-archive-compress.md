@@ -45,33 +45,37 @@ $  gzip [OPTION] FILE ...
 
 	{% highlight c %}
 	
-    	$ gzip -c FILE > FILE.gz
+    $gzip -c FILE > FILE.gz
 	
-    	{% endhighlight %}
+    {% endhighlight %}
+
 
 	**不解压，显示压缩文件列表**
 
 	{% highlight c %}
 
-	$ gzip -l FILE.gz
+	$gzip -l FILE.gz
 	
 	{% endhighlight %}
+
 	
 	**压缩目录中的文件**
 
-    	{% highlight c %}
+    {% highlight c %}
 
-   	 $ gzip -r ./scripts
+   	 $gzip -r ./scripts
 	 
-    	{% endhighlight %}
+    {% endhighlight %}
+
 
 	**解压文件**
 
 	{% highlight c %}
 
-	$ gzip -d FILE.gz
+	$gzip -d FILE.gz
 
 	{% endhighlight %}
+
 
     备注：相当于gunzip
 
@@ -79,9 +83,10 @@ $  gzip [OPTION] FILE ...
 
 	{% highlight c %}
 
-	$ zcat FILE.gz
+	$zcat FILE.gz
 
 	{% endhighlight %}
+
 
 **bzip2/bunzip2/bzcat**
 
