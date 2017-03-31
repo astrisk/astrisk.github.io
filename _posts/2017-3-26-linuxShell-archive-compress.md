@@ -160,28 +160,28 @@ $  xz [OPTION] FILE ...
 
 - 示例
 
-	**压缩并保留源文件**
-	
-	{% highlight c %}
-	
-    $  xz -k FILE
-    
-	{% endhighlight %}
-	
-    **解压**
-    
-    {% highlight c %}
-    
-    $  xz -d FILE.xz
-    
-    {% endhighlight %}
-    
-    **不解压，查看文件内容**
-    
-    {% highlight c %}
-    
-    $  xzcat FILE.xz
-    
-    {% endhighlight %}
-    
+**压缩并保留源文件**
+
+{% highlight c %}
+
+$  xz -k FILE
+
+{% endhighlight %}
+
+**解压**
+
+{% highlight c %}
+
+$  xz -d FILE.xz
+
+{% endhighlight %}
+
+**不解压，查看文件内容**
+
+{% highlight c %}
+
+$  xzcat FILE.xz
+
+{% endhighlight %}
+
 **zip/unzip**
