@@ -44,32 +44,32 @@ $  gzip [OPTION] FILE ...
 	**压缩但是不删除源文件**
 
 	{% highlight c %}
-
-    	$  gzip -c FILE > FILE.gz
-
+	
+    	$ gzip -c FILE > FILE.gz
+	
     	{% endhighlight %}
 
 	**不解压，显示压缩文件列表**
 
 	{% highlight c %}
 
-    	$  gzip -l FILE.gz
-
-    	{% endhighlight %}
+	$ gzip -l FILE.gz
+	
+	{% endhighlight %}
 	
 	**压缩目录中的文件**
 
     	{% highlight c %}
 
-   	 $  gzip -r ./scripts
-
+   	 $ gzip -r ./scripts
+	 
     	{% endhighlight %}
 
 	**解压文件**
 
 	{% highlight c %}
 
-	$  gzip -d FILE.gz
+	$ gzip -d FILE.gz
 
 	{% endhighlight %}
 
@@ -79,7 +79,7 @@ $  gzip [OPTION] FILE ...
 
 	{% highlight c %}
 
-	$  zcat FILE.gz
+	$ zcat FILE.gz
 
 	{% endhighlight %}
 
