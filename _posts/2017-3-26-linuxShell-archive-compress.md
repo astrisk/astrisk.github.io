@@ -41,13 +41,14 @@ $  gzip [OPTION] FILE ...
 
 - 示例
 	- 压缩但是不删除源文件
+
 	{% highlight c %}
 
     $  gzip -c FILE > FILE.gz
 
     {% endhighlight %}
 
-    	- 不解压，显示压缩文件列表
+    - 不解压，显示压缩文件列表
 
 	{% highlight c %}
 
@@ -55,7 +56,7 @@ $  gzip [OPTION] FILE ...
 
     {% endhighlight %}
 
-    	- 压缩目录中的文件
+    - 压缩目录中的文件
 
     {% highlight c %}
 
@@ -63,7 +64,7 @@ $  gzip [OPTION] FILE ...
 
     {% endhighlight %}
 
-   	 - 解压文件
+   	- 解压文件
 
     {% highlight c %}
 
@@ -119,7 +120,7 @@ $  bzip2 [OPTION] FILE ...
 
     {% endhighlight %}
 
-    	- 解压
+    - 解压
 
     {% highlight c %}
 
@@ -127,7 +128,7 @@ $  bzip2 [OPTION] FILE ...
 
     {% endhighlight %}
 
-    	- 不显式展开的前提下查看文件内容
+    - 不显式展开的前提下查看文件内容
 
     {% highlight c %}
 
@@ -165,7 +166,7 @@ $  xz [OPTION] FILE ...
 
 	{% endhighlight %}
 
-    	- 解压
+    - 解压
 
     {% highlight c %}
 
@@ -173,7 +174,7 @@ $  xz [OPTION] FILE ...
 
     {% endhighlight %}
 
-    	- 不解压，查看文件内容
+    - 不解压，查看文件内容
 
     {% highlight c %}
 
