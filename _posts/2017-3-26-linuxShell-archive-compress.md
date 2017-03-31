@@ -41,7 +41,7 @@ $  gzip [OPTION] FILE ...
 
 - 示例
 
-	**压缩但是不删除源文件**
+**压缩但是不删除源文件**
 
 {% highlight c %}
 	
@@ -49,7 +49,7 @@ $gzip -c FILE > FILE.gz
 	
 {% endhighlight %}
 
-	**不解压，显示压缩文件列表**
+**不解压，显示压缩文件列表**
 
 {% highlight c %}
 
