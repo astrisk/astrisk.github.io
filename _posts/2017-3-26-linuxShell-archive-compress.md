@@ -118,6 +118,7 @@ $  bzip2 [OPTION] FILE ...
     $  bzip2 -k FILE
 
     {% endhighlight %}
+    
 
 	**选择最高的压缩比**
 
