@@ -62,7 +62,7 @@ $gzip -l FILE.gz
 {% highlight c %}
 
 $gzip -r ./scripts
-	 
+
 {% endhighlight %}
 
 **解压文件**
@@ -73,7 +73,6 @@ $gzip -d FILE.gz
 
 {% endhighlight %}
 
-
 备注：相当于gunzip
 
 **不显示展开的前提下，查看文件内容**
@@ -83,7 +82,6 @@ $gzip -d FILE.gz
 $zcat FILE.gz
 
 {% endhighlight %}
-
 
 **bzip2/bunzip2/bzcat**
 
