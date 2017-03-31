@@ -56,8 +56,8 @@ $  gzip [OPTION] FILE ...
     	$  gzip -l FILE.gz
 
     	{% endhighlight %}
-
-    	**压缩目录中的文件**
+	
+	**压缩目录中的文件**
 
     	{% highlight c %}
 
@@ -65,7 +65,7 @@ $  gzip [OPTION] FILE ...
 
     	{% endhighlight %}
 
-   	**解压文件**
+	**解压文件**
 
 	{% highlight c %}
 
@@ -75,7 +75,7 @@ $  gzip [OPTION] FILE ...
 
     备注：相当于gunzip
 
-  	**不显示展开的前提下，查看文件内容**
+	**不显示展开的前提下，查看文件内容**
 
 	{% highlight c %}
 
