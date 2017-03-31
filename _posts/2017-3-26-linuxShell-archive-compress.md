@@ -40,6 +40,7 @@ $  gzip [OPTION] FILE ...
 	- l: 显示压缩文件列表
 
 - 示例
+
 	- 压缩但是不删除源文件
 
 	{% highlight c %}
@@ -47,6 +48,7 @@ $  gzip [OPTION] FILE ...
     $  gzip -c FILE > FILE.gz
 
     {% endhighlight %}
+
 
     - 不解压，显示压缩文件列表
 
@@ -56,6 +58,7 @@ $  gzip [OPTION] FILE ...
 
     {% endhighlight %}
 
+
     - 压缩目录中的文件
 
     {% highlight c %}
@@ -63,6 +66,7 @@ $  gzip [OPTION] FILE ...
     $  gzip -r ./scripts
 
     {% endhighlight %}
+
 
    	- 解压文件
 
@@ -74,6 +78,7 @@ $  gzip [OPTION] FILE ...
 
     备注：相当于gunzip
 
+
   	- 不显示展开的前提下，查看文件内容
 
     {% highlight c %}
@@ -81,6 +86,7 @@ $  gzip [OPTION] FILE ...
     $  zcat FILE.gz
 
     {% endhighlight %}
+    
 
 **bzip2/bunzip2/bzcat**
 
@@ -104,6 +110,7 @@ $  bzip2 [OPTION] FILE ...
 	- f: 压缩或解压时，若输出有同名文件，默认不会覆盖，如果指定此选项则覆盖
 
 - 示例
+
 	- 压缩并保留源文件
 
 	{% highlight c %}
@@ -158,6 +165,7 @@ $  xz [OPTION] FILE ...
 	- f: 压缩或解压时，若输出有同名文件，默认不会覆盖，如果指定此选项则覆盖
 
 - 示例
+
 	- 压缩并保留源文件
 
 	{% highlight c %}
