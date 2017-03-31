@@ -4,23 +4,23 @@ date:   2017-03-31 09:28:50
 categories: LINUXSHELL
 ---
 
-**压缩归档概念** 
+**压缩归档概念**
 
 首先来看下压缩和归档，对应的英文单词应该是compress和archive。压缩就是把体积大的物品压制成小的，对应到文件压缩，可理解为更换一种占用硬盘空间小的格式，具体压缩比则取决于压缩算法和选择的压缩率；归档可以理解为把一堆文件归在一起，归档后的文件大小可能比源文件还大。就像一堆散乱的东西，放到放到一个纸箱中，因为包含了纸箱，所以总大小反而更大。
 
-**压缩率** 
+**压缩率**
 
 Linux平台有众多压缩工具，各种压缩工具的用法基本上都大同小异。每种压缩工具都有个压缩率的选项，取值范围都是[0,9]，0表示不压缩，9表示最大压缩率，默认都是6。压缩率越大，压缩后的文件越小，但是压缩过程中消耗的CPU时钟周期越长。
 
-**压缩和解压** 
+**压缩和解压**
 
 Linux上的压缩工具都是成套的，一个压缩工具都会有一个配套的解压工具和不解压缩查看文件内容的工具。
 
-**compress/uncompress** 
+**compress/uncompress**
 
 compress/uncompress 是比较老的的压缩工具，压缩后的文件以.Z作为后缀，现在已经基本上很少见了。
 
-**gzip/gunzip/zcat** 
+**gzip/gunzip/zcat**
 
 gzip/gunzip为比较常见的压缩工具，压缩文件以.gz做为后缀，gzip默认是不保留源文件（压缩后生成压缩文件并删除源文件），以下是gzip的常见用法。
 
@@ -30,7 +30,7 @@ gzip/gunzip为比较常见的压缩工具，压缩文件以.gz做为后缀，gzi
 
 $  gzip [OPTION] FILE ...
 
-{% endhighlight %} 
+{% endhighlight %}
 
 - 常用选项
 	- d :解压，相当于gunzip
@@ -41,28 +41,28 @@ $  gzip [OPTION] FILE ...
 
 - 示例
 	- 压缩但是不删除源文件
-	
+	- 
 	{% highlight c %}
 
     $  gzip -c FILE > FILE.gz
 
-    {% endhighlight %} 
+    {% endhighlight %}
 
     - 不解压，显示压缩文件列表
-	
+
 	{% highlight c %}
 
     $  gzip -l FILE.gz
 
-    {% endhighlight %} 
+    {% endhighlight %}
 
     - 压缩目录中的文件
-    
+
     {% highlight c %}
 
     $  gzip -r ./scripts
 
-    {% endhighlight %} 
+    {% endhighlight %}
 
     - 解压文件
 
@@ -70,7 +70,7 @@ $  gzip [OPTION] FILE ...
 
     $  gzip -d FILE.gz
 
-    {% endhighlight %} 
+    {% endhighlight %}
 
     备注：相当于gunzip
 
@@ -80,9 +80,9 @@ $  gzip [OPTION] FILE ...
 
     $  zcat FILE.gz
 
-    {% endhighlight %} 
+    {% endhighlight %}
 
-**bzip2/bunzip2/bzcat** 
+**bzip2/bunzip2/bzcat**
 
 摘抄百科的介绍:
 	bzip2 是一个基于Burrows-Wheeler 变换的无损压缩软件，压缩效果比传统的LZ77/LZ78压缩算法来得好。它是一款免费软件。可以自由分发免费使用。它广泛存在于UNIX && LINUX的许多发行版本中。bzip2能够进行高质量的数据压缩。它利用先进的压缩技术，能够把普通的数据文件压缩10%至15%，压缩的速度和解压的效率都非常高！支持大多数压缩格式，包括tar、gzip 等等。
