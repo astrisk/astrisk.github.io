@@ -48,17 +48,13 @@ $  gzip [OPTION] FILE ...
     $gzip -c FILE > FILE.gz
 	
     {% endhighlight %}
-
-
 	**不解压，显示压缩文件列表**
 
 	{% highlight c %}
 
 	$gzip -l FILE.gz
 	
-	{% endhighlight %}
-
-	
+	{% endhighlight %}	
 	**压缩目录中的文件**
 
     {% highlight c %}
@@ -66,8 +62,6 @@ $  gzip [OPTION] FILE ...
    	 $gzip -r ./scripts
 	 
     {% endhighlight %}
-
-
 	**解压文件**
 
 	{% highlight c %}
