@@ -186,14 +186,12 @@ $  xzcat FILE.xz
 
 **zip/unzip**
 
-
-- 语法
-
 > zip是个跨平台的压缩工具，个人在工作中，如果是Windows下压缩，也都使用zip，这样无论是放在window还是Linux服务器，都无需另外再安装压缩工具，可以直接使用。
 >  zip is a compression and file packaging utility for Unix, VMS, MSDOS, OS/2, Windows 9x/NT/XP, Minix, Atari, Macintosh, Amiga, and Acorn  RISC
 >  OS. It  is  analogous  to a combination of the Unix commands tar(1) and compress(1) and is compatible with PKZIP (Phil Katzâs ZIP for MSDOS
 >  systems).
 
+- 语法
 
 {% highlight c %}
 
@@ -206,7 +204,7 @@ $  zip [OPTION] archive inpath inpath ...
 	- r : 递归压缩（如果压缩的是目录，并且目录里有子目录，需要用递归进行压缩）
 	- q：静默模式
 	- \$ : $ 代表压缩率，取值范围 [0,9]
-	
+
 - 示例
 
 **压缩文件或压缩目录下的文件（不包含子目录）**
