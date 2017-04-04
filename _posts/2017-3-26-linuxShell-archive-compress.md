@@ -274,3 +274,11 @@ $  zip scripts.zip  install.log.sys -O  newarchive.zip
 {% endhighlight %}
 
 备注：压缩目录scripts/test下的文件，并删除源文件
+
+**解压zip包**
+
+{% highlight c %}
+
+$  unzip scripts.zip 
+
+{% endhighlight %}
