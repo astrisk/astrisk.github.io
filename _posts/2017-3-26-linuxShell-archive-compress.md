@@ -1,5 +1,5 @@
 ---
-title:  "SHELL-压缩归档"
+title:  "SHELL-压缩归档(一)"
 date:   2017-03-31 09:28:50
 categories: LINUXSHELL
 ---
@@ -185,3 +185,92 @@ $  xzcat FILE.xz
 {% endhighlight %}
 
 **zip/unzip**
+
+
+- 语法
+
+> zip是个跨平台的压缩工具，个人在工作中，如果是Windows下压缩，也都使用zip，这样无论是放在window还是Linux服务器，都无需另外再安装压缩工具，可以直接使用。
+>  zip is a compression and file packaging utility for Unix, VMS, MSDOS, OS/2, Windows 9x/NT/XP, Minix, Atari, Macintosh, Amiga, and Acorn  RISC
+>  OS. It  is  analogous  to a combination of the Unix commands tar(1) and compress(1) and is compatible with PKZIP (Phil Katzâs ZIP for MSDOS
+>  systems).
+
+
+{% highlight c %}
+
+$  zip [OPTION] archive inpath inpath ...
+
+{% endhighlight %}
+
+- 常用选项
+	- d :删除压缩文件中的指定文件
+	- r : 递归压缩（如果压缩的是目录，并且目录里有子目录，需要用递归进行压缩）
+	- q：静默模式
+	- \$ : $ 代表压缩率，取值范围 [0,9]
+	- f: 压缩或解压时，若输出有同名文件，默认不会覆盖，如果指定此选项则覆盖
+
+- 示例
+
+**压缩文件或压缩目录下的文件（不包含子目录）**
+
+{% highlight c %}
+
+$  zip  install.log.syslog.zip  install.log.syslog
+
+{% endhighlight %}
+
+
+{% highlight c %}
+
+$  zip  scripts.zip ./scripts
+
+{% endhighlight %}
+
+
+**删除压缩文件中的某个文件**
+
+{% highlight c %}
+
+$  zip -d scripts.zip ./scripts/filearg.sh
+
+{% endhighlight %}
+
+备注：scripts目录下有filearg.sh，filearg.sh；删除后，scripts.zip只包含filearg.sh
+
+**被压缩的目录中如果有子目录，需递归压缩**
+
+{% highlight c %}
+
+$  zip -r scripts.zip ./scripts
+
+{% endhighlight %}
+
+**压缩时不包含目录**
+
+{% highlight c %}
+
+$  zip -j scripts.zip ./scripts
+
+{% endhighlight %}
+
+备注：scripts目录下有filearg.sh，filearg.sh，只压缩scripts目录下的文件，不包含scripts目录
+
+
+**压缩并删除文件**
+
+{% highlight c %}
+
+$  zip -rm scripts.zip ./scripts/test
+
+{% endhighlight %}
+
+备注：压缩目录scripts/test下的文件，并删除源文件
+
+**往zip文件中，增加文件，并生成新的压缩文件**
+
+{% highlight c %}
+
+$  zip scripts.zip  install.log.sys -O  newarchive.zip
+
+{% endhighlight %}
+
+备注：压缩目录scripts/test下的文件，并删除源文件
