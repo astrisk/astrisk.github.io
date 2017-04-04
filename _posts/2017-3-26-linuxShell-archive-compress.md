@@ -282,3 +282,11 @@ $  zip scripts.zip  install.log.sys -O  newarchive.zip
 $  unzip scripts.zip 
 
 {% endhighlight %}
+
+**不解压zip，查看zip中包含的文件**
+
+{% highlight c %}
+
+$  unzip -v scripts.zip 
+
+{% endhighlight %}
