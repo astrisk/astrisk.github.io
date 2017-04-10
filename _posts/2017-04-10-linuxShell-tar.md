@@ -12,7 +12,7 @@ tar是一个归档工具，把多个文件放到一个文件包里；同时tar�
 
 {% highlight c %}
 
-\# tar [OPTION] FILE
+$ tar [OPTION] FILE
 
 {% endhighlight %}
 
@@ -36,7 +36,7 @@ tar是一个归档工具，把多个文件放到一个文件包里；同时tar�
 
 {% highlight c %}
 
-\# tar -cf archive.tar foo
+$ tar -cf archive.tar foo
 
 {% endhighlight %}
 
@@ -44,7 +44,7 @@ tar是一个归档工具，把多个文件放到一个文件包里；同时tar�
 
 {% highlight c %}
 
-\# tar -tvf archive.tar
+$ tar -tvf archive.tar
 
 {% endhighlight %}
 
@@ -52,7 +52,7 @@ tar是一个归档工具，把多个文件放到一个文件包里；同时tar�
 
 {% highlight c %}
 
-\# tar -xvf archive.tar
+$ tar -xvf archive.tar
 
 {% endhighlight %}
 
@@ -60,7 +60,7 @@ tar是一个归档工具，把多个文件放到一个文件包里；同时tar�
 
 {% highlight c %}
 
-\# tar -dvf archive.tar
+$ tar -dvf archive.tar
 
 {% endhighlight %}
 
@@ -68,7 +68,7 @@ tar是一个归档工具，把多个文件放到一个文件包里；同时tar�
 
 {% highlight c %}
 
-\# tar -tvf archive.tar file.txt
+$ tar -tvf archive.tar file.txt
 
 {% endhighlight %}
 
@@ -76,7 +76,7 @@ tar是一个归档工具，把多个文件放到一个文件包里；同时tar�
 
 {% highlight c %}
 
-\# tar -xzvf archive.tar.gz
+$ tar -xzvf archive.tar.gz
 
 {% endhighlight %}
 
@@ -84,7 +84,7 @@ tar是一个归档工具，把多个文件放到一个文件包里；同时tar�
 
 {% highlight c %}
 
-\# tar -xjvf archive.tar.gz
+$ tar -xjvf archive.tar.gz
 
 {% endhighlight %}
 
@@ -92,7 +92,7 @@ tar是一个归档工具，把多个文件放到一个文件包里；同时tar�
 
 {% highlight c %}
 
-\# tar -xJvf archive.tar.xz
+$ tar -xJvf archive.tar.xz
 
 {% endhighlight %}
 
@@ -100,7 +100,7 @@ tar是一个归档工具，把多个文件放到一个文件包里；同时tar�
 
 {% highlight c %}
 
-\# tar -cJvf archive.tar.xz
+$ tar -cJvf archive.tar.xz
 
 {% endhighlight %}
 
@@ -108,7 +108,7 @@ tar是一个归档工具，把多个文件放到一个文件包里；同时tar�
 
 {% highlight c %}
 
-\# tar -czvf archive.tar.gz  ./dir
+$ tar -czvf archive.tar.gz  ./dir
 
 {% endhighlight %}
 
