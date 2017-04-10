@@ -7,7 +7,7 @@ categories: MATTERMOST
 # CentOS 7.2 install PostgreSQL
 
 按照官方的安装文档安装mattermost时，踩了一些坑，根据官方文档并结合自己的安装过程，重新整理了下mattermost的安装配置。
-踩坑的原因：1.使用的CentOS版本为7.1,跟而官网的版本为7.1；2.CentOS 7之后有些命令跟7之前的不太一样。 3.官方文档关于pg的配置不够详细。（由于自己时pg小白，所以没能顺利搞下来，还是查资料配置pg）
+踩坑的原因：1.使用的CentOS版本为7.2,而官网的版本为7.1；2.CentOS 7之后有些命令跟7之前的不太一样。 3.官方文档关于pg的配置不够详细。（由于自己时pg小白，所以没能顺利搞下来，还是查资料配置pg）
 
 **Log in to the server that will host the database, and open a terminal window.**
 
