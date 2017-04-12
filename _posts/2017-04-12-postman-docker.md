@@ -125,6 +125,7 @@ $ docker run --volume="/home/postman/:/var/newman" --workdir="/var/newman" -t po
 - --workdir:指定docker container的工作目录（执行newman目录时，所在的目录）
 
 **执行截图**
+
 ![newman-docker1](../images/postman/newman-docker1.jpg)
 ![newman-docker-result](../images/postman/newman-docker-result.jpg)
 
