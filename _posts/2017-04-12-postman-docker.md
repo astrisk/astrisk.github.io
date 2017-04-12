@@ -6,7 +6,7 @@ categories: POSTMAN
 
 **必要条件**
 
- - 安装docker；https://docs.docker.com/engine/installation/linux/centos/#install-using-the-repository)
+ - 安装docker；[Install Docker In CentOS](https://docs.docker.com/engine/installation/linux/centos/#install-using-the-repository)
  - 在服务器上创建目录/home/postman/,并作为工作目录进行后续操作
  - 把postman中生成的case文件postman_collection_v1.json上传到服务器的目录/home/postman/下
 
