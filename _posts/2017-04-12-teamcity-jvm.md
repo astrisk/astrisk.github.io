@@ -22,6 +22,7 @@ Teamcity的官方文档挺详细，但是太多，并且没有说明详细的傻
 - 停止服务器上teamcity server 和所有agent的service。
 - 进入<teamcity-dir>,把jre目录，重命名为OLD_jre，这样teamcity就找不到内置的32位jre。
 - 确定设置了JAVA_HOME环境变量，并且指向64位的JDK。
+- 新增一个环境变量TEAMCITY_SERVER_MEM_OPTS，值为 -Xmx10g -XX:ReservedCodeCacheSize=512m
 - 重启服务器
 - 重启后，进入teamcity ui界面，进入Administration-Diagnostics-Memory usage可以看到JVM_MEM已经更新成修改后的值。
 - 最后效果如下图
