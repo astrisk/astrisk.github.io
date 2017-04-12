@@ -11,6 +11,7 @@ categories: TEAMCITY
 
 
 **修改须知**
+
 Teamcity的官方文档挺详细，但是太多，并且没有说明详细的傻瓜式的步骤，而且都是英文的，读起来有些费劲。总结下修改前必须清楚的细节。
 
 - teamcity 可以支持32位和64位的jre,但是默认使用的是teamcity内置的jre(<Teamcity dir>/jre)
@@ -19,6 +20,7 @@ Teamcity的官方文档挺详细，但是太多，并且没有说明详细的傻
 - 如果使用64位jre,需要先安装64位jdk或jre，推荐用oracle的jdk。
 
 **修改步骤**
+
 - 停止服务器上teamcity server 和所有agent的service。
 - 进入<teamcity-dir>,把jre目录，重命名为OLD_jre，这样teamcity就找不到内置的32位jre。
 - 确定设置了JAVA_HOME环境变量，并且指向64位的JDK。
