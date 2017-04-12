@@ -6,7 +6,7 @@ categories: POSTMAN
 
 **必要条件**
 
- -安装docker；https://docs.docker.com/engine/installation/linux/centos/#install-using-the-repository)
+ - 安装docker；https://docs.docker.com/engine/installation/linux/centos/#install-using-the-repository)
  - 在服务器上创建目录/home/postman/,并作为工作目录进行后续操作
  - 把postman中生成的case文件postman_collection_v1.json上传到服务器的目录/home/postman/下
 
@@ -16,86 +16,6 @@ categories: POSTMAN
 
 $ cd /home/postman/
 $ vim Dockerfile
-
-
-
-FROM alpine:3.3
-
-MAINTAINER Postman Labs <help@getpostman.com>
-
-
-
-# Set node version
-
-ENV NODE_VERSION 4.3.0
-
-
-
-# Set locale
-
-ENV LC_ALL en_US.UTF-8
-
-ENV LANG en_US.UTF-8
-
-ENV LANGUAGE en_US.UTF-8
-
-
-
-# Install node
-
-RUN apk add --update nodejs=${NODE_VERSION}-r0;
-
-
-
-# Set newman version
-
-ENV NEWMAN_VERSION 3.5.0
-
-
-
-# Install newman
-
-RUN npm install -g newman@${NEWMAN_VERSION};
-
-
-
-# Set workdir to /etc/newman
-
-# When running the image, mount the directory containing your collection to this location
-
-#
-
-# docker run -v <path to collections directory>:/etc/newman ...
-
-#
-
-# In case you mount your collections directory to a different location, you will need to give absolute paths to any
-
-# collection, environment files you want to pass to newman, and if you want newman reports to be saved to your disk.
-
-# Or you can change the workdir by using the -w or --workdir flag
-
-
-
-WORKDIR /etc/newman
-
-
-
-# Set newman as the default container command
-
-# Now you can run the container via
-
-#
-
-# docker run -v /home/collections:/etc/newman -t postman/newman_alpine33 -c YourCollection.json.postman_collection \
-
-#                                                                        -e YourEnvironment.postman_environment \
-
-#                                                                        -H newman_report.html
-
-
-
-ENTRYPOINT ["newman"]
 
 {% endhighlight %}
 
