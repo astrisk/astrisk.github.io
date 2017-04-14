@@ -33,7 +33,7 @@ $ yum remove docker-engine*
 
 {% endhighlight %}
 
-![docker-uninstalled2]({{ site.url }}/images/docker/docker-uninstalled2.png)
+![docker-remove]({{ site.url }}/images/docker/docker-remove.png)
 
 **清理docker资源**
 
