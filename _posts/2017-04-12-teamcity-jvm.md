@@ -28,5 +28,5 @@ Teamcity的官方文档挺详细，但是太多，并且没有说明详细的傻
 - 重启服务器
 - 重启后，进入teamcity ui界面，进入Administration-Diagnostics-Memory usage可以看到JVM_MEM已经更新成修改后的值。
 - 最后效果如下图
-![teamcity-jvm](../images/teamcity-jvm.png)
+![teamcity-jvm]({{ site.url }}/images/teamcity-jvm.png)
 
