@@ -126,7 +126,7 @@ $ docker run --volume="/home/postman/:/var/newman" --workdir="/var/newman" -t po
 
 **执行截图**
 
-![newman-docker1](../images/postman/newman-docker1.jpg)
-![newman-docker-result](../images/postman/newman-docker-result.jpg)
+![newman-docker1](images/postman/newman-docker1.jpg)
+![newman-docker-result](images/postman/newman-docker-result.jpg)
 
 **后续把newman-docker跟kubernetes-docker上的CI/CD结合起来**
