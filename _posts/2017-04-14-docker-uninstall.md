@@ -46,5 +46,5 @@ $ rm -rf /var/lib/docker
 
 {% endhighlight %}
 
-最后世界又回到原始位置；让我们重头开始
+世界又回到原始位置；让我们重头开始
 ![docker-uninstalled4]({{ site.url }}/images/docker/docker-uninstalled4.png)
