@@ -62,6 +62,8 @@ $  yum install -y docker-ce.x86_64
 
 {% endhighlight %}
 
+![docker-install5]({{ site.url }}/images/docker/docker-install5.jpg)
+
 **Start Docker**
 
 {% highlight c %}
@@ -78,11 +80,19 @@ $ sudo docker run hello-world
 
 {% endhighlight %}
 
+![docker-install6]({{ site.url }}/images/docker/docker-install6.jpg)
+
+![docker-install7]({{ site.url }}/images/docker/docker-install7.jpg)
 
 **安装遇到地坑**
 
 selinux版本不满足docker-ce要求，selinux版本太低
 ![docker-install3]({{ site.url }}/images/docker/docker-install3.jpg)
 
-CentOS上安装的selinux版本
+查看CentOS上安装的selinux版本
 ![docker-install4]({{ site.url }}/images/docker/docker-install4.jpg)
+
+**解决方法**
+
+- 选择比较新的版本，比如CentOS-7-x86_64-XXX-1611（验证过）
+- 安装低版本的docker-engine
