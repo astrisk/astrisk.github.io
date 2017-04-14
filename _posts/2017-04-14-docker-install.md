@@ -77,3 +77,12 @@ $ sudo systemctl start docker
 $ sudo docker run hello-world
 
 {% endhighlight %}
+
+
+**安装遇到地坑**
+
+selinux版本不满足docker-ce要求，selinux版本太低
+![docker-install3]({{ site.url }}/images/docker/docker-install3.jpg)
+
+CentOS上安装的selinux版本
+![docker-install4]({{ site.url }}/images/docker/docker-install4.jpg)
