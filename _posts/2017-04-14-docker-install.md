@@ -80,9 +80,9 @@ $ sudo docker run hello-world
 
 {% endhighlight %}
 
-![docker-install6]({{ site.url }}/images/docker/docker-install6.jpg)
+![docker-install6]({{ site.url }}/images/docker/docker-install6.png)
 
-![docker-install7]({{ site.url }}/images/docker/docker-install7.jpg)
+![docker-install7]({{ site.url }}/images/docker/docker-install7.png)
 
 **安装遇到地坑**
 
