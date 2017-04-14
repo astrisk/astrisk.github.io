@@ -95,6 +95,6 @@ selinux版本不满足docker-ce要求，selinux版本太低
 ![docker-install4]({{ site.url }}/images/docker/docker-install4.jpg)
 
 **解决方法**
-
+- 安装docker前先看下selinux的版本，docker-ce 17 依赖的seLinux版本大等于3.13.1-102（以上elinux版本太低截图可以看出）
 - 选择比较新的版本，比如CentOS-7-x86_64-XXX-1611（验证过）
 - 安装低版本的docker-engine
