@@ -62,7 +62,9 @@ $  yum install -y docker-ce.x86_64
 
 {% endhighlight %}
 
-![docker-install5]({{ site.url }}/images/docker/docker-install5.jpg)
+![docker-install5]({{ site.url }}/images/docker/docker-install5.png)
+
+![docker-install6]({{ site.url }}/images/docker/docker-install6.png)
 
 **Start Docker**
 
@@ -80,7 +82,7 @@ $ sudo docker run hello-world
 
 {% endhighlight %}
 
-![docker-install6]({{ site.url }}/images/docker/docker-install6.png)
+
 
 ![docker-install7]({{ site.url }}/images/docker/docker-install7.png)
 
