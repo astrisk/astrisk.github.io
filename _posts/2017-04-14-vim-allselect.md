@@ -8,7 +8,7 @@ categories: VIM
 
 有时候需要全选，然后删除。在vim中使用快捷键能够很方便地执行。
 
- * ggVG
+ * ggVGd
 
 
 **解释**
@@ -20,5 +20,7 @@ categories: VIM
 以上ggVG实现全选
 
 - d  : 删除选中内容
+
+
 
 
