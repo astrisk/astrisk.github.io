@@ -123,7 +123,7 @@ docker CLI把context发送给Docker daemon之前，会在根目录查找.dockeri
 
 | Rule | Behavior |
 |--------|--------|
-| # comment      |  Ignored      |
+| \# comment      |  Ignored      |
 | \*/temp*       |  匹配所有目录下，以temp为前缀的目录或文件；如/somedir/temporary.txt;/somedir/tmp      |
 | \*/\*/temp*    |  匹配所有以根目录以下2级的以temp为前缀的目录和所有子目录下以temp为前缀的文件；例如：/somedir/subdir/temporary.txt      |
 |  temp?         |  匹配根目录下，长度为5个字符，前缀为temp的目录和文件；例如/tempb,/tempb                 |
