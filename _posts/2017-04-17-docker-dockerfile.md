@@ -1,5 +1,5 @@
 ---
-title:  "DOCKER-DOCKERFILE详解"
+title:  "DOCKER-DOCKERFILE详解(一)"
 date:   2017-04-17 17:55:09
 categories: DOCKER-HACKATHON
 ---
@@ -65,9 +65,11 @@ Dockerfile指令不是大小写敏感，但是约定指令是建议大写。第�
 Parser directive，即解析器指令，为可选项。解析器指令在构建过程中不会生成缓存层，也不会作为构建步骤在构建过程中显示。解析器指令作为一种特殊的注释。单个解析器指令只能被使用一次。
 
 以下是支持的解析器指令
+
 - escape
 
 **escape**
+
 escape指令是用来设置Dockerfile中的转移字符。如果没有设置，则使用默认的，默认的转移字符为 \.
 
 在window环境中，以下Dockerfile在构建时会出现问题。
@@ -116,3 +118,13 @@ docker CLI把context发送给Docker daemon之前，会在根目录查找.dockeri
 如果.dockerignore文件中的一行，第一列是以#号开头，则这一行会被认为是注释，在CLI解析前，该行会被忽略。
 
 如果需要排除例外，可以用!标识，例如!README*.md，这样README*.md文件会被包含在context中。
+
+**dockerignore示例**
+
+| Rule | Behavior |
+|--------|--------|
+| # comment      |  Ignored      |
+| \*/temp*       |  匹配所有目录下，以temp为前缀的目录或文件；如/somedir/temporary.txt;/somedir/tmp      |
+| \*/\*/temp*    |  匹配所有以根目录以下2级的以temp为前缀的目录和所有子目录下以temp为前缀的文件；例如：/somedir/subdir/temporary.txt      |
+|  temp?         |  匹配根目录下，长度为5个字符，前缀为temp的目录和文件；例如/tempb,/tempb                 |
+|  !file  |  !表示排除例外.例如!README.md把README.md文件排除（即不会被过滤）                             |
