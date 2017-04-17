@@ -55,7 +55,9 @@ Dockerfile的格式如下：
 Dockerfile指令不是大小写敏感，但是约定指令是建议大写。第一条指令必须是以FROM 开头指定一个基础镜像，如下：
 
 > FROM ubuntu
+
 > ENTRYPOINT ["top", "-b"]
+
 > CMD ["-c"]
 
 ## Parser directives
@@ -69,8 +71,11 @@ Parser directive，即解析器指令，为可选项。解析器指令在构建�
 escape指令是用来设置Dockerfile中的转移字符。如果没有设置，则使用默认的，默认的转移字符为 \.
 
 在window环境中，以下Dockerfile在构建时会出现问题。
+
 > FROM microsoft/nanoserver
+
 > COPY testfile.txt c:\\
+
 > RUN dir c:\
 
 使用escape指令把转移符设置成 \` ,可以解决以上问题，Dockerfile内容如下
@@ -78,7 +83,9 @@ escape指令是用来设置Dockerfile中的转移字符。如果没有设置，�
 > \# escape=`
 
 > FROM microsoft/nanoserver
+
 > COPY testfile.txt c:\
+
 > RUN dir c:\
 
 ## Environment replacement
