@@ -10,7 +10,7 @@ categories: DOCKER-HACKATHON
 
 2. 使用Dockerfile,通过在Dockerfile定义各种指令，然后通过docker build来构建docker image。
 
-这两种方式本质上都是一样的，即在在base container中添加(更新)各种应用程序或脚本等操作，生成一个新的docker container，最后利用docker commit把docker container变成docker image。不过利用Dockerfile有利于管理维护和共享，所以基本上我们都使用Dockerfile来构建docker image。下面让我们来详细了解Dockerfile指令。
+这两种方式本质上都是一样的，即在在base container中添加(更新)各种应用程序或脚本等操作，生成一个新的docker container，最后利用docker commit把docker container变成docker image。不过利用Dockerfile有利于管理维护和共享，所以基本上我们都使用Dockerfile来构建docker image。下面让我们来详细了解Dockerfile。
 
 ## Usage
 
