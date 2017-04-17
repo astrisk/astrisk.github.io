@@ -107,3 +107,12 @@ ${var}语法还支持标准bash修饰语，如下
 - WORKDIR
 - VOLUME
 - STOPSIGNAL
+
+## .dockerignore 
+
+docker CLI把context发送给Docker daemon之前，会在根目录查找.dockerignore文件，并根据.dockerignore文件中定义的模式过滤排除匹配到的文件或目录。这个跟 .gitignore功能类似。这样可以避免使用ADD或COPY指令时，把大型或敏感的文件发送给Docker daemon。
+
+.dockerignore以换行作为模式的分隔符，每行表示一种匹配模式，模式类似于Unix shell 的file globs。
+如果.dockerignore文件中的一行，第一列是以#号开头，则这一行会被认为是注释，在CLI解析前，该行会被忽略。
+
+如果需要排除例外，可以用!标识，例如!README*.md，这样README*.md文件会被包含在context中。
