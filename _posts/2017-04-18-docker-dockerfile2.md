@@ -1,5 +1,5 @@
 ---
-title:  "DOCKER-DOCKERFILE详解二"
+title:  "DOCKER-Dockerfile详解二"
 date:   2017-04-18 14:00:19
 categories: DOCKER-HACKATHON
 ---
@@ -134,3 +134,29 @@ EXPOSE 8443
 
 {% endhighlight %}
 
+## ENV
+
+ENV指令定义和设置变量，这些变量可以在Dockerfile的后续命令中使用。使用ENV指令定义的环境变量会被持久化下来，同时可以使用docker run --env <key>=<value>进行重新赋值。
+
+**语法**
+
+{% highlight c %}
+
+ENV <key> <value>
+ENV <key>=<value> ...
+
+{% endhighlight %}
+
+
+**示例**
+
+{% highlight c %}
+
+ENV myName="John Doe" myDog=Rex\ The\ Dog \
+    myCat=fluffy
+
+ENV myName John Doe
+ENV myDog Rex The Dog
+ENV myCat fluffy
+
+{% endhighlight %}
