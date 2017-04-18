@@ -202,3 +202,71 @@ ADD指令把文件，目录（可以是URL指定的网络上的目录，文件�
 
 COPY指令跟ADD指令相似，跟ADD不同的是，COPY仅支持本地文件的拷贝，不支持URL和解压。
 
+
+## VOLUME
+
+VOLUME指令在container中创建一个挂载点，用来挂载主机或其他container的文件系统。
+
+**语法**
+
+{% highlight c %}
+
+VOLUME ["/data"]
+
+{% endhighlight %}
+
+
+**示例**
+
+{% highlight c %}
+
+FROM ubuntu
+RUN mkdir /myvol
+RUN echo "hello world" > /myvol/greeting
+VOLUME /myvol
+
+{% endhighlight %}
+
+在docker run 时可以把本地的donwload目录挂载到
+
+{% highlight c %}
+
+docker run -it -v /home/Downloads:/myvol ubuntu64 /bin/bash
+
+{% endhighlight %}
+
+{% highlight c %}
+
+docker run -it -v /home/Downloads:/myvol:ro ubuntu64 /bin/bash
+
+{% endhighlight %}
+
+备注：
+- 默认container对于挂载目录是可读可写权限，如果须要指定只读，可指定权限为ro。
+- -v 指定的本地目录，须使用绝对路径。
+
+## USER
+
+USER指令用来指定运行Dockerfile定义的RUN,CMD,ENTRYPOINT指令定义命令的用户，可以使用用户名或UID。当服务不需要管理员权限时，可以通过该命令指定运行用户。并且可以在之前创建所需要的用户，例如： RUN groupadd -r postgres && useradd -r -g postgres postgres 。要临时获取管理员权限可以使用 gosu ，而不推荐 sudo 
+
+**示例**
+
+{% highlight c %}
+
+USER apache
+
+{% endhighlight %}
+
+## WORKDIR
+
+WORKDIR指令用来设置运行RUN,CMD,ENTRYPOINT指令时所在的工作目录。如果WORKDIR设置的目录不存在，则会创建。WORKDIR指令在Dockerfile中可以多次设置。如果WORKDIR设置时使用的是相对路径，新的路径是相对于上一条WORKDIR指令设置的路径。
+
+**示例**
+
+{% highlight c %}
+
+WORKDIR /usr/local/sonarqube
+
+{% endhighlight %}
+
+## ENTRYPOINT
