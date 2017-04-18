@@ -169,11 +169,19 @@ ARG指令定义变量，在使用docker build时可以通过--build-arg <varname
 
 {% highlight c %}
 
-From resin/rpi-raspbian
+FROM resin/rpi-raspbian
 ARG NODE_VER
 ADD ./${NODE_VER:-node-v5.9.1-linux-armv7l} /
 RUN ln -s /${NODE_VER} /node
 ENV PATH=/node/bin:$PATH
 CMD ["node"]
+
+{% endhighlight %}
+
+在Dockerfile中指定了一个默认值，如果构建image未指定NODE_VER，就使用默认值。同时也可以在构建image时指定NODE_VER值，如下：
+
+{% highlight c %}
+
+docker build --build-arg NODE_VER=node-v5.9.0-linux-armv7l .
 
 {% endhighlight %}
