@@ -136,7 +136,7 @@ EXPOSE 8443
 
 ## ENV
 
-ENV指令定义和设置变量，这些变量可以在Dockerfile的后续命令中使用。使用ENV指令定义的环境变量会被持久化下来，同时可以使用docker run --env <key>=<value>进行重新赋值。
+ENV指令定义和设置变量，这些变量可以在Dockerfile的后续命令中使用。使用ENV定义的环境变量会被持久化下来，同时可以使用docker run --env <key>=<value>进行重新赋值。
 
 **语法**
 
@@ -158,5 +158,22 @@ ENV myName="John Doe" myDog=Rex\ The\ Dog \
 ENV myName John Doe
 ENV myDog Rex The Dog
 ENV myCat fluffy
+
+{% endhighlight %}
+
+## ARG
+
+ARG指令定义变量，在使用docker build时可以通过--build-arg <varname>=<value> 标识对ARG变量进行赋值。比如在编写nodejs基础镜像的Dockerfile时，就可以把VERSION定义成ARG，在docker build时指定具体要构建的nodejs版本。
+
+**示例**
+
+{% highlight c %}
+
+From resin/rpi-raspbian
+ARG NODE_VER
+ADD ./${NODE_VER:-node-v5.9.1-linux-armv7l} /
+RUN ln -s /${NODE_VER} /node
+ENV PATH=/node/bin:$PATH
+CMD ["node"]
 
 {% endhighlight %}
