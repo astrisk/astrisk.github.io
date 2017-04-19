@@ -270,3 +270,44 @@ WORKDIR /usr/local/sonarqube
 {% endhighlight %}
 
 ## ENTRYPOINT
+
+ENTRYPOINT指令跟CMD指令很相似，都可以用来配置container启动后运行命令。不过这两个指令还是有些区别：
+
+- CMD指令先于ENTRYPOINT指令运行。
+- CMD指令定义的命令在执行docker run时，可以通过传递参数进行简单覆盖。而如果须要覆盖ENTRYPOINT指令需要通过在docker run --entrypoint 选项。
+- 如果定义了ENTRYPOINT指令，执行docker run <image> 时，image后面的所有内容会被当作参数传递给ENTRYPOINT指令。
+- ENTRYPOINT和CMD指令可以配合使用，如果执行docker run时传递参数就覆盖CMD，不然就把CMD指令传递给ENTRYPOINT指令。
+
+**示例**
+
+{% highlight c %}
+
+\# Dockerfile for Rethinkdb 
+\# http://www.rethinkdb.com/
+
+FROM ubuntu
+
+MAINTAINER Michael Crosby <michael@crosbymichael.com>
+
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get upgrade -y
+
+RUN apt-get install -y python-software-properties
+RUN add-apt-repository ppa:rethinkdb/ppa
+RUN apt-get update
+RUN apt-get install -y rethinkdb
+
+\# Rethinkdb process
+EXPOSE 28015
+\# Rethinkdb admin console
+EXPOSE 8080
+
+\# Create the /rethinkdb_data dir structure
+RUN /usr/bin/rethinkdb create
+
+ENTRYPOINT ["/usr/bin/rethinkdb"]
+
+CMD ["--help"]
+
+{% endhighlight %}
