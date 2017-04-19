@@ -282,8 +282,8 @@ ENTRYPOINT指令跟CMD指令很相似，都可以用来配置container启动后�
 
 {% highlight c %}
 
-\# Dockerfile for Rethinkdb 
-\# http://www.rethinkdb.com/
+# Dockerfile for Rethinkdb 
+# http://www.rethinkdb.com/
 
 FROM ubuntu
 
@@ -298,12 +298,12 @@ RUN add-apt-repository ppa:rethinkdb/ppa
 RUN apt-get update
 RUN apt-get install -y rethinkdb
 
-\# Rethinkdb process
+# Rethinkdb process
 EXPOSE 28015
-\# Rethinkdb admin console
+# Rethinkdb admin console
 EXPOSE 8080
 
-\# Create the /rethinkdb_data dir structure
+# Create the /rethinkdb_data dir structure
 RUN /usr/bin/rethinkdb create
 
 ENTRYPOINT ["/usr/bin/rethinkdb"]
