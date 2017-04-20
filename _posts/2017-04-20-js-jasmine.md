@@ -30,23 +30,23 @@ teardown: afterEach
 
 **匹配函数: to***(arg)**
 
-	- 内置匹配函数
-		toBe()
-		toBeDefined()
-		toBeUndefined()
-		toBeNull()
-		toBeTruthy()
-		toBeFalsy()
-		toEqual()
-		toBeLessThan()
-		toBeGreaterThan()
-		toContain()
-		toBeCloseTo()
-		toHaveBeenCalled()
-		toHaveBeenCalledWith()
-		toMatch()
-	- 自定义匹配函数
-		示例：http://jasmine.github.io/2.0/custom_matcher.html
+- 内置匹配函数
+	toBe()
+	toBeDefined()
+	toBeUndefined()
+	toBeNull()
+	toBeTruthy()
+	toBeFalsy()
+	toEqual()
+	toBeLessThan()
+	toBeGreaterThan()
+	toContain()
+	toBeCloseTo()
+	toHaveBeenCalled()
+	toHaveBeenCalledWith()
+	toMatch()
+- 自定义匹配函数
+	示例：http://jasmine.github.io/2.0/custom_matcher.html
 
 **跳过和挂起测试**
 
@@ -104,7 +104,6 @@ it("should support async execution of test preparation and expectations", functi
   });
 
 {% endhighlight %}
-
 
 **info**
 - http://jasmine.github.io/2.0/introduction.html
