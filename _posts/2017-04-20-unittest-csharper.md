@@ -1,7 +1,7 @@
 ---
 title:  "UNITTEST-VS+NUNIT+DOTCOVER搭建UNITTEST环境"
-date:   2017-04-20 17:47:21
-categories: UNITTEST
+date:   2017-04-20 18:29:32
+categories: UNITTESTS
 ---
 
 **工具安装**
