@@ -22,29 +22,29 @@ describe("A suite", function() {
 
 **Unit、Jasmine基本概念对应关系**
 
-测试套件Suites: describe
-测试用例 TestCase：it
-测试断言 Assert：expect
-Setup: beforeEach
-teardown: afterEach
+- 测试套件Suites: describe
+- 测试用例 TestCase：it
+- 测试断言 Assert：expect
+- Setup: beforeEach
+- teardown: afterEach
 
 **匹配函数: to***(arg)**
 
 - 内置匹配函数
-	toBe()
-	toBeDefined()
-	toBeUndefined()
-	toBeNull()
-	toBeTruthy()
-	toBeFalsy()
-	toEqual()
-	toBeLessThan()
-	toBeGreaterThan()
-	toContain()
-	toBeCloseTo()
-	toHaveBeenCalled()
-	toHaveBeenCalledWith()
-	toMatch()
+	- toBe()
+	- toBeDefined()
+	- toBeUndefined()
+	- toBeNull()
+	- toBeTruthy()
+	- toBeFalsy()
+	- toEqual()
+	- toBeLessThan()
+	- toBeGreaterThan()
+	- toContain()
+	- toBeCloseTo()
+	- toHaveBeenCalled()
+	- toHaveBeenCalledWith()
+	- toMatch()
 - 自定义匹配函数
 	示例：http://jasmine.github.io/2.0/custom_matcher.html
 
@@ -53,29 +53,29 @@ teardown: afterEach
 - disable suites ：xdescribe
 
 - disable testCase：xit
-	Xdescribe 和xit的测试，运行期间将被skip,它们也不会被显示在运行结果中。
+	- Xdescribe 和xit的测试，运行期间将被skip,它们也不会被显示在运行结果中。
 
 - Pending specs: pending()
-	Pending 的spec 不会运行，但是测试名会在运行结果中显示为pending
+	- Pending 的spec 不会运行，但是测试名会在运行结果中显示为pending
 
 - Pending specs
-	can be declared 'xit'
-	can be declared with 'it' but without a function
-	can be declared by calling 'pending' in the spec body
+	- can be declared 'xit'
+	- can be declared with 'it' but without a function
+	- can be declared by calling 'pending' in the spec body
 
 - Spies
-	Spy函数具有双重功能：做为测试的stub和跟踪函数的调用。
-	and.callThrough
-	and.returnValue
-	and.callFake
-	and.throwError
-	and.stub
-	calls.any()
-	calls.count()
-	calls.argsFor(index):
-	calls.all():
-	calls.mostRecent():
-	calls.first()
+	- Spy函数具有双重功能：做为测试的stub和跟踪函数的调用。
+	- and.callThrough
+	- and.returnValue
+	- and.callFake
+	- and.throwError
+	- and.stub
+	- calls.any()
+	- calls.count()
+	- calls.argsFor(index):
+	- calls.all():
+	- calls.mostRecent():
+	- calls.first()
 
 **Mock Timeout**
 - Install function: jasmine.clock().install();
