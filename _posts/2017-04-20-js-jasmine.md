@@ -75,7 +75,7 @@ describe("A suite", function() {
 - Asynchronous Support
 	- Calls to beforeEach, it, and afterEach can take an optional single argument that should be called when the async work is complete.
 	- This spec will not start until the done function is called in the call to beforeEach above. And this spec will not complete until its done is called.
-	- Jasmine默认异步调用超时为5S，可以通过设置jasmine.DEFAULT_TIMEOUT_INTERVAL为自定义超时时间
+	- Jasmine默认异步调用超时为5S，可以通过设置jasmine.DEFAULT_TIMEOUT_INTERVAL为自定义超时时间。
 
 {% highlight c %}
 
