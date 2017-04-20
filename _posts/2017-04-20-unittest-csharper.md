@@ -26,10 +26,8 @@ Visual Studio中执行Nuint用例，需要安装NUnit Test Adapter或dotCover(�
 
 - 引用中，添加Nunit.Framework 和被测试dll的引用，删除MSTest framework dll引用：Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 ![unittest4]({{ site.url }}/images/unittests/unit tests4.png)
-
 - 编写测试类，用TestFixture属性标识测试类。
 ![unittest5]({{ site.url }}/images/unittests/unit tests5.png)
-
 - 编写测试方法，用Test属性标识。
 ![unittest6]({{ site.url }}/images/unittests/unit tests6.png)
 
@@ -37,10 +35,8 @@ Visual Studio中执行Nuint用例，需要安装NUnit Test Adapter或dotCover(�
 
 - 代码编辑界面执行
 ![unittest7]({{ site.url }}/images/unittests/unit tests7.png)
-
 - 工具栏菜单执行
 ![unittest8]({{ site.url }}/images/unittests/unit tests8.png)
-
 - 解决方案资源管理器中执行
 ![unittest9]({{ site.url }}/images/unittests/unit tests9.png)
 
@@ -48,12 +44,9 @@ Visual Studio中执行Nuint用例，需要安装NUnit Test Adapter或dotCover(�
 
 - 在Session窗口中查看执行结果(执行测试时，会自动打开Session窗口)。
 ![unittest10]({{ site.url }}/images/unittests/unit tests10.png)
-
 - 在Session窗口查看覆盖率
 ![unittest11]({{ site.url }}/images/unittests/unit tests11.png)
-
 - 双击上图右侧中Coverage Tree里的方法名，跳转到代码编辑窗口，查看语句覆盖：绿色的为已覆盖；红色的为未覆盖。
 ![unittest12]({{ site.url }}/images/unittests/unit tests12.png)
-
 - 在测试类代码编辑窗口查看结果：绿色勾为通过；红色圆(中间白色线条)为失败。
 ![unittest13]({{ site.url }}/images/unittests/unit tests13.png)
