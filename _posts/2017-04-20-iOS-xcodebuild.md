@@ -24,16 +24,21 @@ $: xcode-select –install
 **使用**
 
 {% highlight c %}
-	
-$: xcodebuild –version #查看xcode 的版本号 和build 版本号
-	
-$:xcodebuild –showsdks #显示当前系统的SDK及其版本
-	
-$:man xcodebuild #查看xcodebuild man手册(帮助文档)
-	
-$:  : + q   #退出man手册
-	
-$:xcodebuild clean install #清理目录
+
+#查看xcode 的版本号 和build 版本号
+$: xcodebuild –version 
+
+#显示当前系统的SDK及其版本	
+$:xcodebuild –showsdks 
+
+#查看xcodebuild man手册(帮助文档)	
+$:man xcodebuild 
+
+#退出man手册	
+$:  : + q   
+
+#清理目录	
+$:xcodebuild clean install 
 
 # build MyTarget
 
