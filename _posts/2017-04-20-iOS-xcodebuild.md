@@ -112,5 +112,27 @@ xcodebuild -exportArchive -exportFormat APP -archivePath
 {% endhighlight %}
 
 
+**xcodebuild所有可用的action**
+
+- build       
+	- Build the target in the build root (SYMROOT).  This is the default build action.
+
+- analyze     
+	- Build and analyze a target or scheme from the build root (SYMROOT).  This requires specifying a scheme.
+
+- archive     
+	- Archive a scheme from the build root (SYMROOT).  This requires specifying a scheme.
+
+- test
+	- Test a scheme from the build root (SYMROOT).  This requires specifying a scheme and optionally a destina-tion.
+
+- installsrc  
+	- Copy the source of the project to the source root(SRCROOT).
+
+- install
+	- Build the target and install it into the target's installation directory in the distribution root(DSTROOT).
+
+- clean
+	- Remove build products and intermediate files from the build root (SYMROOT).
 
 
