@@ -28,6 +28,7 @@ describe("A suite", function() {
 - teardown: afterEach
 
 **匹配函数: to***(arg)**
+
 - 内置匹配函数
 	- toBe()
 	- toBeDefined()
@@ -56,7 +57,7 @@ describe("A suite", function() {
 	- can be declared with 'it' but without a function
 	- can be declared by calling 'pending' in the spec body
 - Spies
-	- Spy函数具有双重功能：做为测试的stub和跟踪函数的调用。
+	- Spy函数具有双重功能：做为测试的stub和跟踪函数的调用
 	- and.callThrough
 	- and.returnValue
 	- and.callFake
