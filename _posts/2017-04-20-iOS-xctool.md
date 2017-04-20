@@ -5,6 +5,7 @@ categories: iOS
 ---
 
 **HomeBrew**
+
 Homebrew作为OS X上强大的包管理器，为系统软件提供了非常方便的安装方式，独特式的解决了包的依赖问题，一键式编译，无参数困扰。Homebrew依赖于XCode，首先需要安装Xcode。同时Homebrew也依赖ruby，Mac已经自带ruby。
 
 {% highlight c %}
@@ -54,6 +55,7 @@ Homebrew将本地的/usr/local初始化为git的工作树，并将目录所有�
 +–Homebrew    brew程序自身命令集
 
 **XCTool**
+
 XCTool是facebook开源的一个命令行工具，用来替代苹果的xcodebuild。主要有以下功能：
 - 像xcode一样跑测试用例。
 - 结构化输出编译测试结果。
@@ -72,6 +74,7 @@ $:xctool –version (终端显示xctool的版本)
 {% endhighlight %}
 
 **Xctool 使用**
+
 在终端中进入项目目录，执行相应命令：
 
 - 语法
