@@ -72,95 +72,91 @@ categories: INTEGRATIONTEST
 
 {% highlight c %}
 
-	namespace DatasControllerTest
-	{
+[TestFixture]
+public class DatasController_installTest
+{
+     [SetUp]
+      public void Indata()
+      {
+          DateTime dt = DateTime.ParseExact("20150407", "yyyyMMdd",
+              System.Globalization.CultureInfo.CurrentCulture);
+          DatasController controller = new DatasController();
+          controller.PostUpdateTimes(dt);
+      }
 
-	    [TestFixture]
-	    public class DatasController_installTest
-	    {
-	         [SetUp]
-	          public void Indata()
-	          {
-	              DateTime dt = DateTime.ParseExact("20150407", "yyyyMMdd",
-	                  System.Globalization.CultureInfo.CurrentCulture);
-	              DatasController controller = new DatasController();
-	              controller.PostUpdateTimes(dt);
-	          }
+    [Test, TestCaseSource(typeof (TestCaseFactoryMethod), "installTest")]
+    public void WebApiInstallCount(JObject input, List<InstallModel> expValue)
+    {
+        string message;
+        //
+        var pids = input["pids"].ToString();
+        var ed = input["ed"].ToString();
+        var sd = input["sd"].ToString();
+        var zt = input["zt"].ToString();
+        DatasController controller = new DatasController();
+        List<InstallModel> actValue = controller.GetInstalls(pids, Convert.ToDateTime(sd), Convert.ToDateTime(ed),
+            int.Parse(zt));
+        //验证
+        bool result = NunitTestHelper.CompareObject(actValue, expValue, out message);
+        Assert.IsTrue(result, message);
+    }
+}
 
-	        [Test, TestCaseSource(typeof (TestCaseFactoryMethod), "installTest")]
-	        public void WebApiInstallCount(JObject input, List<InstallModel> expValue)
-	        {
-	            string message;
-	            //
-	            var pids = input["pids"].ToString();
-	            var ed = input["ed"].ToString();
-	            var sd = input["sd"].ToString();
-	            var zt = input["zt"].ToString();
-	            DatasController controller = new DatasController();
-	            List<InstallModel> actValue = controller.GetInstalls(pids, Convert.ToDateTime(sd), Convert.ToDateTime(ed),
-	                int.Parse(zt));
-	            //验证
-	            bool result = NunitTestHelper.CompareObject(actValue, expValue, out message);
-	            Assert.IsTrue(result, message);
-	        }
-	    }
-
-	    /// <summary>
-	    /// 测试获取指定Profile页面浏览次数前几的页面信息 - 单APP最热内容排行
-	    /// </summary>
-	    [TestFixture]
-	    public class DatasController_GetPagesTest
-	    {
-	        [Test, TestCaseSource(typeof (TestCaseFactoryMethod), "GetPagesTest")]
-	        public void WebApiGetPagesTest(JObject input, List<PageInfoModel> expValue)
-	        {
-	            string message;
-	            //
-	            var pids = input["pids"].ToString();
-	            var pn = input["pn"].ToString();
-	            DatasController controller = new DatasController();
-	            List<PageInfoModel> actValue = controller.GetPages(pids, int.Parse(pn));
-	            //验证
-	            //验证
-	            bool result = NunitTestHelper.CompareObject(actValue, expValue, out message);
-	            Assert.IsTrue(result, message);
-	        }
+/// <summary>
+/// 测试获取指定Profile页面浏览次数前几的页面信息 - 单APP最热内容排行
+/// </summary>
+[TestFixture]
+public class DatasController_GetPagesTest
+{
+    [Test, TestCaseSource(typeof (TestCaseFactoryMethod), "GetPagesTest")]
+    public void WebApiGetPagesTest(JObject input, List<PageInfoModel> expValue)
+    {
+        string message;
+        //
+        var pids = input["pids"].ToString();
+        var pn = input["pn"].ToString();
+        DatasController controller = new DatasController();
+        List<PageInfoModel> actValue = controller.GetPages(pids, int.Parse(pn));
+        //验证
+        //验证
+        bool result = NunitTestHelper.CompareObject(actValue, expValue, out message);
+        Assert.IsTrue(result, message);
+    }
 
 
-	    }
+}
 
-	    ///   测试用例工厂,生成测试用例
-	    /// 
-	    #region
-	    public class TestCaseFactoryMethod
-	    {
-	        public static IEnumerable installTest
-	        {
+///   测试用例工厂,生成测试用例
+/// 
+#region
+public class TestCaseFactoryMethod
+{
+    public static IEnumerable installTest
+    {
 
-	            get
-	            {
-	                var fileinfos = new[]
-	                {
-	                    new FileInfo(@"..\..\TestData\DatasController1.json")
-	                };
-	                return NunitTestHelper.TestCaseGenerater<List<InstallModel>>(fileinfos).Cast<object>();
-	            }
-	        }
+        get
+        {
+            var fileinfos = new[]
+            {
+                new FileInfo(@"..\..\TestData\DatasController1.json")
+            };
+            return NunitTestHelper.TestCaseGenerater<List<InstallModel>>(fileinfos).Cast<object>();
+        }
+    }
 
-	        public static IEnumerable GetPagesTest
-	        {
-	            get
-	            {
-	                var fileinfos = new[]
-	               {
-	                    new FileInfo(@"..\..\TestData\GetPagesTest.json")
-	                };
-	                return NunitTestHelper.TestCaseGenerater<List<PageInfoModel>>(fileinfos).Cast<object>();
-	            }
-	        }
-	        #endregion
-	    }
-	}
+    public static IEnumerable GetPagesTest
+    {
+        get
+        {
+            var fileinfos = new[]
+           {
+                new FileInfo(@"..\..\TestData\GetPagesTest.json")
+            };
+            return NunitTestHelper.TestCaseGenerater<List<PageInfoModel>>(fileinfos).Cast<object>();
+        }
+    }
+    #endregion
+}
 
 {% endhighlight %}
 
