@@ -1,10 +1,10 @@
 ---
-title:  "DOCKERFILE-最佳实践"
+title:  "DOCKER-DOCKERFILE最佳实践"
 date:   2017-04-21 09:27:35
 categories: DOCKER-HACKATHON
 ---
 
-Dockerfile提供简单的语法来构建images，下面是一些编写Dockerfile的最佳实践。
+Dockerfile提供简单的语法来构建images，如何编写优雅的Dcokerfile是有技巧的。
 
 **使用缓存**
 
