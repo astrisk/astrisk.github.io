@@ -64,11 +64,11 @@ categories: INTEGRATIONTEST
 
 **完整例子**
 
-- 数据文件
+ * 数据文件
 
 ![integrationTest2]({{ site.url }}/images/integrationTest/integrationtest2.png)
 
-- 测试代码
+ * 测试代码
 
 {% highlight c %}
 
