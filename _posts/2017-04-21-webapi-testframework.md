@@ -50,7 +50,7 @@ categories: INTEGRATIONTEST
 
 - 编写测试方法
 
-方法需加属性[Test, TestCaseSource(typeof(TestCaseFactory), "XXXTest")]。
+	- 方法需加属性[Test, TestCaseSource(typeof(TestCaseFactory), "XXXTest")]
 	- TestCaseFactory:测试数据源工厂类
 	- XXXTest：TestCaseFactory(可以自定义类名)类中的XXXTest属性
 
