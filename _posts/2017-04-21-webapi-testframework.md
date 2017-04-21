@@ -66,6 +66,15 @@ categories: INTEGRATIONTEST
 
 - 数据文件
 
+{% highlight c %}
+
+# TestName：测试用例 
+# Input: api接口地址
+# ExpValue： 预期值。
+# 采用json数组方式，每个json元素对应一个测试用例
+
+{% endhighlight %}
+
 ![integrationTest2]({{ site.url }}/images/integrationTest/integrationtest2.png)
 
 - 测试代码
