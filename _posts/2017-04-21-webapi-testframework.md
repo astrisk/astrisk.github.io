@@ -71,22 +71,6 @@ categories: INTEGRATIONTEST
 # TestName：测试用例 
 # Input: api接口地址
 # ExpValue： 预期值。
-[
-  {
-    "TestName":"InstallTest260",
-    "Input":{"url":"http://localhost/api/Datas/installs?pids","pids":"260"},
-    "ExpValue":{
-      "Count": 14481
-    }
-  },
-  {
-    "TestName":"InstallTest313",
-    "Input":{"url":"http://localhost/api/Datas/installs?pids","pids":"313"},
-    "ExpValue":{
-      "Count": 9744
-    }
-  }
-]
 # 采用json数组方式，每个json元素对应一个测试用例
 
 {% endhighlight %}
