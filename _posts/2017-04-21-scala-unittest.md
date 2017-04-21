@@ -7,7 +7,7 @@ categories: SCALA
 **Scala项目结构**
 - Scala项目结构一般是使用Maven约定的项目结构。
 
-**IAED安装Scala插件**
+**IDEA安装Scala插件**
 - File->Settings->Plugins->Install JetBrains plugin->输入”scala”->搜索->下载->安装
 ![scalaTest]({{ site.url }}/images/scala/scala2.png)
 
