@@ -20,9 +20,7 @@ categories: SCALA
 
 **Sacla UnitTest**
 
-Scala 的单元测试框架主要有三个：ScalaTest、ScalaCheck和Spec2。其中ScalaTest是比较全面的测试框架。后面也主要使用ScalaTest编写Scala单元测试。以下介绍在各种构建环境下如何导入ScalaTest。我们公司都使用[ScalaTest](http://www.scalatest.org/)
-
-不同的构建工具，导入ScalaTest的方式稍有区别。
+Scala 的单元测试框架主要有三个：ScalaTest、ScalaCheck和Spec2。其中ScalaTest是比较全面的测试框架。后面也主要使用ScalaTest编写Scala单元测试。以下介绍在各种构建环境下如何导入ScalaTest。同时我们公司开发测试都使用[ScalaTest](http://www.scalatest.org/)。不同的构建工具，导入ScalaTest的方式稍有区别。
 
 - Maven,在pom.xml添加以下内容
 
