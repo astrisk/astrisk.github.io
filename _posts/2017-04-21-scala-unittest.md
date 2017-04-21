@@ -83,33 +83,33 @@ class MySpec extends UnitSpec {
 
 	- Behavior of 表达主题
 	
-{% highlight c %}
+		{% highlight c %}
 
-behavior of "A Stack (with one item)"
+		behavior of "A Stack (with one item)"
 
-it should "be non-empty" in {}
+		it should "be non-empty" in {}
 
-it should "return the top item on peek" in {}
+		it should "return the top item on peek" in {}
 
-it should "not remove the top item on peek" in {}
+		it should "not remove the top item on peek" in {}
 
-it should "remove the top item on pop" in {}
+		it should "remove the top item on pop" in {}
 
-{% endhighlight %}
+		{% endhighlight %}
 
 	- Shorthand notation 表达主题
 
-{% highlight c %}
+		{% highlight c %}
 
-"A Stack (with one item)" should "be non-empty" in {}
+		"A Stack (with one item)" should "be non-empty" in {}
 
-it should "return the top item on peek" in {}
+		it should "return the top item on peek" in {}
 
-it should "not remove the top item on peek" in {}
+		it should "not remove the top item on peek" in {}
 
-it should "remove the top item on pop" in {}
+		it should "remove the top item on pop" in {}
 
-{% endhighlight %}	 
+		{% endhighlight %}	 
 
 	- 测试例子
 
