@@ -76,7 +76,12 @@ select count(*) from history
 join build_type_mapping on build_type_mapping.int_id = history.build_type_id
 where ext_id = 'NewMedia_TVDissector_TrackerJS_BaseIntegrationJstracker'
 
-build fail counts
+{% endhighlight %}
+
+- build fail counts
+
+{% highlight c %}
+
 select count(*) from history 
 join build_type_mapping on build_type_mapping.int_id = history.build_type_id
 where ext_id = 'NewMedia_TVDissector_TrackerJS_BaseIntegrationJstracker'
