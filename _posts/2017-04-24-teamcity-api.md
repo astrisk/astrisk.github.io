@@ -68,7 +68,7 @@ Note: If the value contains the "," symbol, it should be enclosed into parenthes
 
 ## **TeamCity 数据库查询SQL**
 
-1. total build counts
+- total build counts
 
 {% highlight c %}
 
@@ -84,7 +84,7 @@ and status != 1
 
 {% endhighlight %}
 
-2. 测试总数，覆盖率
+- 测试总数，覆盖率
 
 {% highlight c %}
 
