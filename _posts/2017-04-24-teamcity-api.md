@@ -4,17 +4,17 @@ date:   2014-09-10 22:37:00
 categories: TEAMCITY
 ---
 
-**背景**
+## **背景**
 
 之前为了在公司推质量可视化项目，把公司持续集成平台，sonarqube平台的代码项目过程质量数据做收集并集中展示，以此来使得项目过程质量更加透明和可度量，以此来推动研发团队重视质量。
 
 公司的持续集成平台用的是teamcity,如何把持续集成的构建相关质量数据收集起来，是本篇blog的目标。同时在调研过程中也遇到了些问题，并根据调研情况，我们也调整了相应的方案。
 
-**TEAMCITY REST API**
+## **TEAMCITY REST API**
 
- * [官方文档](https://confluence.jetbrains.com/display/TCD9/REST+API#RESTAPI-GeneralUsagePrinciples)
+**[官方文档](https://confluence.jetbrains.com/display/TCD9/REST+API#RESTAPI-GeneralUsagePrinciples)**
 
- * URL Structure
+**URL Structure**
 
 The general structure of the URL in the TeamCity API is teamcityserver:port/<authType>/app/rest/<entity>, where
 - teamcityserver and port define the server name and the port used by TeamCity
@@ -25,7 +25,7 @@ The general structure of the URL in the TeamCity API is teamcityserver:port/<aut
 
 备注：其中buildType对应Build configuration
 
- * Locator
+**Locator**
 
 In a number of places, you can specify a filter string which defines what entities to filter/affect in the request. This string representation is referred to as "locator" in the scope of REST API.
 The locators formats can be:
@@ -35,7 +35,7 @@ Refer to each entity description for the supported locators.
 If a request with invalid locators is sent, the error messages often hint on the error and list supported locator dimensions (only non-experimental ones) when an unknown dimension is detected.
 Note: If the value contains the "," symbol, it should be enclosed into parentheses: "(<value>)".
 
- * Examples
+**Examples**
 
 - 获取所有项目
   -  http://ci.gridsum.com/httpAuth/app/rest/projects
@@ -60,15 +60,15 @@ Note: If the value contains the "," symbol, it should be enclosed into parenthes
 -  获取具体某个build的信息
   - http://ci.gridsum.com/httpAuth/app/rest/buildTypes/id:NewMedia_Sample_Workflow_Feature/builds/id:26292
 
-**意外**
+## **意外**
 
 从以上资料来看，teamcity的api还是比较简单，好用。但是我在实际获取数据的时候发现数据不准确，从api获取到的数据经常要比teamcity UI和数据库里的数据要少。
 
 最后我放弃了teamcity api获取数据，改用从teamcity的数据库里直接读取相应数据。
 
-**TeamCity 数据库查询SQL**
+## **TeamCity 数据库查询SQL**
 
- * total build counts
+1. total build counts
 
 {% highlight c %}
 
@@ -84,7 +84,7 @@ and status != 1
 
 {% endhighlight %}
 
- * 测试总数，覆盖率
+2. 测试总数，覆盖率
 
 {% highlight c %}
 
