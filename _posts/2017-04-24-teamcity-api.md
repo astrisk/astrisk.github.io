@@ -1,5 +1,5 @@
 ---
-title:  "TEAMCITY-质量数据收集"
+title:  "质量可视化之-TEAMCITY数据"
 date:   2017-04-24 11:19:06
 categories: TEAMCITY
 ---
