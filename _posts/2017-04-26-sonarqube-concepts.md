@@ -27,6 +27,8 @@ Sonar 可以从以下七个维度检测代码质量，而作为开发人员至�
 
 ---
 
+# **SONARQUBE CONCEPTS**
+
 ## **Duplication**
 
 - Duplicated blocks  重复块数
