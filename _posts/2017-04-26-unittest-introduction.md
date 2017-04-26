@@ -1,39 +1,60 @@
 ---
-title:  "Example"
-date:   2014-09-10 22:37:00
-categories: example
+title:  "UNITTEST-Introduction"
+date:   2017-04-26 15:44:43
+categories: UNITTEST
 ---
 
-**Basic**
+## **单元测试定义**
 
-Neque porro *quisquam* est, qui **dolorem** ipsum, quia ***dolor*** sit, amet, [consectetur](http://cjdns.info/), adipisci velit.
+- 单元测试概念
 
- * lorem
- * ipsum
+	- 单元测试(Unit test)是一段自动化的代码，用来调用被测试的类中的方法，而后验证基于该方法逻辑行为的一些假设。
 
-1. dolor
-2. sit
+- 单元测试对象
+	-单元测试是软件开发生命周期中的低级别测试，测试对象是组成软件的最小单元，即类和方法。但是具体到测试哪些方法，有许多不同的观点，个人比较赞同单元测试对象为被测试类中的对外公布的接口，即public方法。	
 
-| First Header | Second Header |
-|--------------|---------------|
-| Table Cell   | Table Cell    |
+- 单元测试目标
+	-单元测试的目标是尽可能多的发现被测试对象中的BUG，主要是功能问题，健壮性问题和性能问题。通过单元测试来辅助开发健壮、安全和可维护、可扩展的组件代码，为整个系统打下坚实的基础。
 
-**Blockquote**
+- 单元测试特征
+	- 单元测试中不应该包含对外部资源的访问，如：文件系统、数据库、网络连接等，对外部资源访问的测试应该归到集成测试里。
+	- 单元测试的执行时间很短，单个测试执行时间是毫秒级的。如果测试执行的时间大于1秒，可能需要去考虑被测试方法是否属于单元测试范围或是否需要重构被测试对象。
+	- 每个单元测试都是隔离的。不同的单元测试之间不存在相互依赖。
+	- 单元测试的结果很明确，成功与否一目了然，方便验证。如果被测试对象不能或者很难去验证测试成功与否，可能需要考虑重构或重新设计代码。
+	- 单元测试应该关注被测试对象的特征，重点描述被测试对象在相应场景的行为，提高测试的可读性。
+	- 单元测试评估的是逻辑覆盖率。
 
-> They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.
-> 
-> _Benjamin Franklin_
+## **相关概念**
 
-**Code**
+**Fakes 、Mocks、Stubs**
 
-{% highlight c %}
+- Fakes：伪造，Mocks、Stubs都属于Fakes。
+- Mocks: 模拟对象，用来验证被测试方法与外部的交互的虚拟对象。
+- Stubs: 存根，桩对象，用来替代外部输入的对象。
+- Mock 和 Stub的区别：mock是用来做Assert的，Stub是用来伪造(替代)外部输入的,有些文章或书籍中并没有明确区分这两个概念。
 
-static void asyncEnabled(Dict* args, void* vAdmin, String* txid, struct Allocator* requestAlloc)
-{
-    struct Admin* admin = Identity_check((struct Admin*) vAdmin);
-    int64_t enabled = admin->asyncEnabled;
-    Dict d = Dict_CONST(String_CONST("asyncEnabled"), Int_OBJ(enabled), NULL);
-    Admin_sendMessage(&d, txid, admin);
-}
+**AAA 模式 和Record—Replay模式**
+- AAA : Arrange –Action– Assert
+- Record-Replay:另一种单元测试写法，多数隔离框架都支持这样写法，例如Rhino mock，Typemock Isolator等。
 
-{% endhighlight %}
+## **编写单元测试步骤**
+
+- 定义API需求
+	- 第一件事应该从较高的层面上来理解类的行为，用角色、职责和协作者的关系来思考对象，理解了被测对象扮演的角色，有什么样的职责，以及需要的协作对象。
+	- 具体到API需求，就是需求清楚其特征，以及其行为。应该包括输入和输出范围，抛出异常，条件限制以及返回值类型等方面的内容。
+	- 在清楚了API的需求后，按照以下步骤编写测试用例。
+- 编写功能特征用例
+	- 在定义完API的需求和功能后，需要编写一个或多个测试，来验证需求功能特征都正确实现。
+- 检查边界情况
+	- 如果函数的输入参数有一定的取值范围，测试的输入参数必须包含该范围的最大和最小值。检查边界用来验证被测试代码在边界上实现正确。
+	- 例子：VDTracker的采样率，为浮点类型,精确到小数点后三位，取值范围是(0,1],则我们在测试该代码时，要分别测试0.001，0.5， 1等三个输入值。
+- 编写反向用例
+	- 反向用例是用来验证当输入非法值或非预期值时，代码是否正确处理。逆向测试用来测试被测试代码的健壮性。
+	- 例子：1.VDTracker的采样率，反向的用例输入参数为-1, 0, 1.1等；2.VDTracker配置文件解析，正常情况为服务器存在请求的配置文件。反向用例为服务器没有请求的配置文件。
+- 编写综合用例
+	- 综合的测试用例，通过结合不同的使用方式来实现API的一些复杂行为。综合测试表现复杂行为，这样能发现更多的问题。这类型的测试在更切合现实的条件下，模拟API的使用。
+	- 例子：有个stack，往stack push 3个对象后，pop掉2个对象,需要验证stack内保留的对象数目是否为1。
+- 用例验证bug修复
+	- 如果发现了BUG，修复以后，编写测试用例来验证BUG修复成功。
+	- 例子：一个文件解析字符串函数，对解析出来的字符串没有去除前后空格(如url中存在前后空格，可能导致请求失败)。修复这个BUG后，需要写测试用例来验证BUG修复成功。
+
