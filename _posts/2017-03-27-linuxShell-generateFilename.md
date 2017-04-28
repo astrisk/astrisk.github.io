@@ -38,7 +38,7 @@ $ echo ${VAR%%.*} //结果是hack
 {% highlight c %}
 
 $ VAR=hack.fun.book.txt
-$ echo ${VAR$*.}  //结果fun.book.txt
-$ echo ${VAR$$*.} //结果是txt
+$ echo ${VAR#*.}  //结果fun.book.txt
+$ echo ${VAR##*.} //结果是txt
 
 {% endhighlight %}
