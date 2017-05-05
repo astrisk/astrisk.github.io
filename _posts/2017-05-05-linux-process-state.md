@@ -4,7 +4,7 @@ date:   2017-05-05 17:03:44
 categories: LINUX
 ---
 
-**Linux进程状态**
+## **Linux进程状态**
 
 在Linux中每个进程都必然处于以下五种状态中的一种。进程状态描述如下：
 
@@ -14,6 +14,6 @@ categories: LINUX
 - _TASK_TRACED --- 被其它进程跟踪的进程，例如通过ptrace对调试程序进行跟踪。
 - _TASK_STOPPED(停止) --- 进程停止执行。通常这种状态发生在接收到SIGSTOP,SIGTSTP,SIGTTIN,SIGTTOU等信号的时候。此外在调试期间接收到任何信号，都会使进程进入这种状态。
 
-**进程状态机**
+## **进程状态机**
 
 ![process-states]({{ site.url }}/images/linux/process-states.png)
