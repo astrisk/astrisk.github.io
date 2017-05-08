@@ -44,7 +44,7 @@ categories: RABBITMQ
 >                                           _           = '_'}},
 >                 [list_to_tuple(['orelse' | [{'=:=', '$2', RKey} ||
 >                                                RKey <- RoutingKeys]])]).
-
+>
 > find_routes(MatchHead, Conditions) ->
 >     ets:select(rabbit_route, [{MatchHead, Conditions, ['$1']}]).
 
