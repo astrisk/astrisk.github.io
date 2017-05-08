@@ -22,20 +22,20 @@ RabbitMQ系列blog为《RabbitMQ in Action》的读书笔记，记录相关知�
 5. 谁创建队列
 	- 生产者和消费者都可以创建队列。如果消息被路由到一个不存在的队列，RabbitMQ会忽视消息，消息会丢失。	
 6. 订阅队列消息的两种方式
-	Basic.consume - 接收模式
-	Basic.get - 获取单条消息
+	- Basic.consume - 接收模式
+	- Basic.get - 获取单条消息
 	
 7. 消息分发方式
-	以循环方式发送给多个消息订阅者
+	- 以循环方式发送给多个消息订阅者
 	
 8. 消息确认
-	消费者通过basic.ack向rabbitMQ发送消息确认，如果订阅到队列时，auto_ack = true,一旦消费者接收到消息，会自动视为确认消息。
-	消费者确认后，rabbitMQ才能安全地从队列中删除消息
-	如果消费者没有确认，在确认消息之前，rabbitMQ不会再给该消费者再发送消息
+	- 消费者通过basic.ack向rabbitMQ发送消息确认，如果订阅到队列时，auto_ack = true,一旦消费者接收到消息，会自动视为确认消息。
+	- 消费者确认后，rabbitMQ才能安全地从队列中删除消息
+	- 如果消费者没有确认，在确认消息之前，rabbitMQ不会再给该消费者再发送消息
 	
 9. 拒绝消息
-	把消费者从rabbitMQ服务器断开，消息会重新入队列，并发送给另一个消费者
-	rabbitMQ2.0或以上版本，basic.reject = true,消息会重新发给下一个订阅者；basic.reject=false消息会被从队列中移除，不会发送给新的消费者
+	- 把消费者从rabbitMQ服务器断开，消息会重新入队列，并发送给另一个消费者
+	- rabbitMQ2.0或以上版本，basic.reject = true,消息会重新发给下一个订阅者；basic.reject=false消息会被从队列中移除，不会发送给新的消费者
 
 ## **交换器和绑定**
 
