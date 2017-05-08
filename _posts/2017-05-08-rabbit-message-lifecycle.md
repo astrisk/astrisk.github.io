@@ -33,23 +33,23 @@ categories: RABBITMQ
 
 {% highlight c %}
 
-	match_routing_key(SrcName, [RoutingKey]) ->  
-	    find_routes(#route{binding = #binding{source      = SrcName,  
-	                                          destination = '$1',  
-	                                          key         = RoutingKey,  
-	                                          _           = '_'}},  
-	                []);  
-	match_routing_key(SrcName, [_|_] = RoutingKeys) ->  
-	    find_routes(#route{binding = #binding{source      = SrcName,  
-	                                          destination = '$1',  
-	                                          key         = '$2',  
-	                                          _           = '_'}},  
-	                [list_to_tuple(['orelse' | [{'=:=', '$2', RKey} ||  
-	                                               RKey <- RoutingKeys]])]).  
-	  
-	find_routes(MatchHead, Conditions) ->  
-	    ets:select(rabbit_route, [{MatchHead, Conditions, ['$1']}]).  
-        
+match_routing_key(SrcName, [RoutingKey]) ->  
+    find_routes(#route{binding = #binding{source      = SrcName,  
+                                          destination = '$1',  
+                                          key         = RoutingKey,  
+                                          _           = '_'}},  
+                []);  
+match_routing_key(SrcName, [_|_] = RoutingKeys) ->  
+    find_routes(#route{binding = #binding{source      = SrcName,  
+                                          destination = '$1',  
+                                          key         = '$2',  
+                                          _           = '_'}},  
+                [list_to_tuple(['orelse' | [{'=:=', '$2', RKey} ||  
+                                               RKey <- RoutingKeys]])]).  
+  
+find_routes(MatchHead, Conditions) ->  
+    ets:select(rabbit_route, [{MatchHead, Conditions, ['$1']}]).  
+    
 {% endhighlight %}
 
 （参见[$RABBIT_SRC/src/rabbit_router.erl --> match_routing_key/2]）
