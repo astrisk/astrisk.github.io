@@ -22,7 +22,7 @@ categories: RABBITMQ
 
 消息实体由结构#basic_message表示，包含exchange_name，content，id，is_persistent，routing_keys几个域组成。没什么复杂逻辑，主要就是从客户端拿到这些信息后，再组织成一个#basic_message结构。
 在实际投递消息之前，其实还有一层封装：#delivery结构，它只是在#basic_message的基础上封装了几个根据投递行为相关的属性，包含：mandatory（此值影响消息在未能成功路由到一个队列时的应对策略，如果为true，则会向客户端返回一个“无法路由（unroutable）”的错误消息；如果为false，则会直接丢弃消息），immediate（此值影响消息无法立即投递到消费者时的应对策略，如果为true，则会向客户端返回一个“无法投递（undeliverable）”的错误消息；如果为false，则服务器会将消息入队列，但是不保证消息最终会被消费者消费），sender（处理此消息的channel进程），message（对应上面的basic_message），msg_seq_no（从1开始的序列，每收到一个消息加1，此值只有存在AMQP中定义的事务的时候才有效）。
- 
+
 **匹配目标队列**
 
 主要完成由客户端指定的routing keys匹配到目标队列的功能。在创建消费者时，消费者会指定在目标exchange上的绑定关系（bindings，通过queue.bind命令创建），匹配主要就基于这种绑定关系。在AMQP中，有四种最基本的exchange：direct，fanout，topic，headers。在匹配目标队列时，分成三类：direct和fanout的匹配类似，topic与headers各为一类。
@@ -31,26 +31,23 @@ categories: RABBITMQ
 
 主要代码如下：
 
-{% highlight c %}
+> match_routing_key(SrcName, [RoutingKey]) ->
+>     find_routes(#route{binding = #binding{source      = SrcName,
+>                                           destination = '$1',
+>                                           key         = RoutingKey,
+>                                           _           = '_'}},
+>                 []);
+> match_routing_key(SrcName, [_|_] = RoutingKeys) ->
+>     find_routes(#route{binding = #binding{source      = SrcName,
+>                                           destination = '$1',
+>                                           key         = '$2',
+>                                           _           = '_'}},
+>                 [list_to_tuple(['orelse' | [{'=:=', '$2', RKey} ||
+>                                                RKey <- RoutingKeys]])]).
 
-match_routing_key(SrcName, [RoutingKey]) ->
-    find_routes(#route{binding = #binding{source      = SrcName,
-                                          destination = '$1',
-                                          key         = RoutingKey,
-                                          _           = '_'}},
-                []);
-match_routing_key(SrcName, [_|_] = RoutingKeys) ->
-    find_routes(#route{binding = #binding{source      = SrcName,
-                                          destination = '$1',
-                                          key         = '$2',
-                                          _           = '_'}},
-                [list_to_tuple(['orelse' | [{'=:=', '$2', RKey} ||
-                                               RKey <- RoutingKeys]])]).
+> find_routes(MatchHead, Conditions) ->
+>     ets:select(rabbit_route, [{MatchHead, Conditions, ['$1']}]).
 
-find_routes(MatchHead, Conditions) ->
-    ets:select(rabbit_route, [{MatchHead, Conditions, ['$1']}]).
-
-{% endhighlight %}
 
 （参见[$RABBIT_SRC/src/rabbit_router.erl --> match_routing_key/2]）
 SrcName为目标exchange的名称；direct的exchange在匹配时，传入的第二个参数是客户端发送的routing keys，fanout传入的是[‘_’]。
