@@ -33,30 +33,30 @@ categories: RABBITMQ
 
 {% highlight c %}
 
-match_routing_key(SrcName, [RoutingKey]) ->  
-    find_routes(#route{binding = #binding{source      = SrcName,  
-                                          destination = '$1',  
-                                          key         = RoutingKey,  
-                                          _           = '_'}},  
-                []);  
-match_routing_key(SrcName, [_|_] = RoutingKeys) ->  
-    find_routes(#route{binding = #binding{source      = SrcName,  
-                                          destination = '$1',  
-                                          key         = '$2',  
-                                          _           = '_'}},  
-                [list_to_tuple(['orelse' | [{'=:=', '$2', RKey} ||  
-                                               RKey <- RoutingKeys]])]).  
-  
-find_routes(MatchHead, Conditions) ->  
-    ets:select(rabbit_route, [{MatchHead, Conditions, ['$1']}]).  
-    
+match_routing_key(SrcName, [RoutingKey]) ->
+    find_routes(#route{binding = #binding{source      = SrcName,
+                                          destination = '$1',
+                                          key         = RoutingKey,
+                                          _           = '_'}},
+                []);
+match_routing_key(SrcName, [_|_] = RoutingKeys) ->
+    find_routes(#route{binding = #binding{source      = SrcName,
+                                          destination = '$1',
+                                          key         = '$2',
+                                          _           = '_'}},
+                [list_to_tuple(['orelse' | [{'=:=', '$2', RKey} ||
+                                               RKey <- RoutingKeys]])]).
+
+find_routes(MatchHead, Conditions) ->
+    ets:select(rabbit_route, [{MatchHead, Conditions, ['$1']}]).
+
 {% endhighlight %}
 
 （参见[$RABBIT_SRC/src/rabbit_router.erl --> match_routing_key/2]）
 SrcName为目标exchange的名称；direct的exchange在匹配时，传入的第二个参数是客户端发送的routing keys，fanout传入的是[‘_’]。
 从上面代码可以看出，匹配主要使用ets:select/2函数来完成。只有一个routing key时，match_routing_key函数完成的功能很简单：按照exchange名称（source），routing key（key）在rabbit_route表中进行匹配，并把匹配记录的队列名称（destination）返回。其中rabbit_route表是在客户端通过queue.bind命令（AMQP定义）绑定队列与exchange时，由rabbit写入的，参见[$RABBIT_SRC/src/rabbit_binding.erl --> add/2]。
 fanout类型的exchange在匹配时传入[‘_’]，会匹配到关联到exchange的所有队列。
- 
+
 当有多个routing keys时，find_routing中最终传入的第二个参数会类似如下形式：
 [‘orelse’, {‘=:=’, ‘$2’, RKey1}, {‘=:=’, ‘$2’, RKey2}, {‘=:=’, ‘$2’, RKey1}, {‘=:=’, ‘$2’, RKey3}]
 什么意思呢，{‘=:=’, ‘$2’, RKey1}是说 RKey1与$2所代表的变量要精确相等，第一个元素’orelse’代表其它的元素是“或”关系，也就是说只要#route结构中的key匹配RKey1, RKey2, RKey3中的任意一个就会返回匹配的队列名称。
@@ -75,7 +75,7 @@ rabbit在收到一个topic类型exchange的绑定请求时，会根据routing pa
 从node1到node2的路径，rabbit会首先尝试用“test”匹配，发现没到直达路径，然后尝试以“*”匹配，成功，node2到node3以“abc”匹配成功，node3到node4同理，node4到node5以“#”号匹配，然后在node5结点要跳过任何不能匹配node5到node6路径的单词，这里是“456”，最后匹配到“end”。
 rabbit在这个算法的实现上有点奇怪，例如从node2到node3的匹配，即使“abc”路径已经匹配，但还是会尝试通过“*”和“#”匹配，增加了很多无意义的比较。
 （代码参见[$RABBIT_SRC/src/rabbit_exchange_type_topic.erl --> trie_match/2]）
- 
+
 **headers匹配算法**
 
 AMQP协议对headers类型的exchange的匹配算法有如下规定：由“x-match”头来控制匹配模式，分两种，all和any，类似于布尔运算里的AND和OR：如果匹配模式是all，则目标消息中的头信息的值必须匹配所有在绑定时指定的头信息；如果为any，则只要有一个头信息的值匹配就可以。其中的匹配是指，要么绑定时指定的头信息值为空，要么目标消息中的头信息的值与绑定时指定的值完全一致。
