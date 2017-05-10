@@ -1,39 +1,15 @@
 ---
-title:  "Example"
-date:   2014-09-10 22:37:00
-categories: example
+title:  "Linux内核设计和实现-避免死锁的简单规则"
+date:   2017-05-10 15:41:44
+categories: LINUXKERNEL
 ---
 
 **Basic**
 
-Neque porro *quisquam* est, qui **dolorem** ipsum, quia ***dolor*** sit, amet, [consectetur](http://cjdns.info/), adipisci velit.
+《Linux内核设计和实现》书中提到了避免死锁的一些简单规则，具体如下：
 
- * lorem
- * ipsum
+ * 按顺序加锁。使用嵌套的锁时必须保证以相同的顺序获取锁，这样可以阻止致命拥抱类型的死锁。最好能记录下锁的顺序，以便其他人也能照此顺序使用。
+ * 防止发生饥饿。试问，这个代码的执行是否一定会结束？如果“张”不发生？“王”要一直等待下去吗？
+ * 不要重复请求同一个锁。
+ * 设计应力求简单---越复杂的加锁方案越有可能造成死锁。
 
-1. dolor
-2. sit
-
-| First Header | Second Header |
-|--------------|---------------|
-| Table Cell   | Table Cell    |
-
-**Blockquote**
-
-> They who can give up essential liberty to obtain a little temporary safety, deserve neither liberty nor safety.
-> 
-> _Benjamin Franklin_
-
-**Code**
-
-{% highlight c %}
-
-static void asyncEnabled(Dict* args, void* vAdmin, String* txid, struct Allocator* requestAlloc)
-{
-    struct Admin* admin = Identity_check((struct Admin*) vAdmin);
-    int64_t enabled = admin->asyncEnabled;
-    Dict d = Dict_CONST(String_CONST("asyncEnabled"), Int_OBJ(enabled), NULL);
-    Admin_sendMessage(&d, txid, admin);
-}
-
-{% endhighlight %}
