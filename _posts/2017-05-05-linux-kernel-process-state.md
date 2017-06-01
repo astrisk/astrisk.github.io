@@ -1,7 +1,7 @@
 ---
-title:  "LINUX-PROCESS-STATE"
+title:  "Linux内核设计和实现-进程状态"
 date:   2017-05-05 17:03:44
-categories: LINUX
+categories: LINUXKERNEL
 ---
 
 ## **Linux进程状态**

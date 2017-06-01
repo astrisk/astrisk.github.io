@@ -63,11 +63,11 @@ fanout类型的exchange在匹配时传入[‘_’]，会匹配到关联到exchan
 topic的exchange基于类似正则表达式的方式来说明routing pattern（同bindings）。AMQP对用于topic类型exchange的routing key（由生产者在发布消息时指定）有如下规定：由0个或多个以”.”分隔的单词；每个单词只能以一字母或者数字组成。routing pattern增加如下规则：*可以匹配单个单词；#可以匹配0个或者多个单词。例如：routing pattern “*.stock.#”会匹配到routing key “usd.stock”和“eru.stock.db”，但不会匹配“stock.nasdaq”。
 
 rabbit在收到一个topic类型exchange的绑定请求时，会根据routing pattern生成一个Trie结构：其中的边为以“.”分隔的单词，结点唯一编号。一般的Trie结构会是个树形结构，但是在AMQP的场景下，退化成类似一个链表。对于“*.abc.xyz.#.end”会生成如下结构：
-![base1]({{ site.url }}/rabbitmq/base1.png)
+![base1]({{ site.url }}/images/rabbitmq/base1.png)
 
 （代码参见[$RABBIT_SRC/src/rabbit_exchange_type_topic.erl --> internal_add_binding/1]）
 在收到一个消息时，rabbit会根据绑定时创建的trie结构进行搜索，比如对于routing key为test.abc.xyz.123.456.end搜索路径如下：
-![base1]({{ site.url }}/rabbitmq/base1.png)
+![base1]({{ site.url }}/images/rabbitmq/base1.png)
 
 从node1到node2的路径，rabbit会首先尝试用“test”匹配，发现没到直达路径，然后尝试以“*”匹配，成功，node2到node3以“abc”匹配成功，node3到node4同理，node4到node5以“#”号匹配，然后在node5结点要跳过任何不能匹配node5到node6路径的单词，这里是“456”，最后匹配到“end”。
 rabbit在这个算法的实现上有点奇怪，例如从node2到node3的匹配，即使“abc”路径已经匹配，但还是会尝试通过“*”和“#”匹配，增加了很多无意义的比较。
