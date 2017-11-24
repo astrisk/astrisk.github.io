@@ -15,7 +15,6 @@ $ sudo yum remove docker \
 
 {% endhighlight %}
 
-
 **Install using the repository**
 
 {% highlight c %}
@@ -41,7 +40,7 @@ $ sudo yum-config-manager --disable docker-ce-edge
 
 {% endhighlight %}
 
-**INSTALL DOCKER CE**
+**Install Docker CE**
 
 {% highlight c %}
 
