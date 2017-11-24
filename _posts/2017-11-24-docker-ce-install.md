@@ -45,7 +45,7 @@ $ sudo yum-config-manager --disable docker-ce-edge
 
 {% highlight c %}
 
-# yum install -y docker-ce-17.06.1.ce
+$ sudo yum install -y docker-ce-17.06.1.ce
 
 {% endhighlight %}
 
@@ -61,7 +61,7 @@ $ sudo systemctl start docker
 
 {% highlight c %}
 
-# sudo docker run hello-world
+$ sudo docker run hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 9a0669468bf7: Pull complete
