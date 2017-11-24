@@ -1,10 +1,10 @@
 ---
-title:  "Docker CE install in CentOS 7"
+title:  "Install Docker CE in CentOS 7"
 date:   2017-11-24 18:37:00
 categories: DOCKER
 ---
 
-**uninstall old docker**
+**Uninstall old docker**
 
 {% highlight c %}
 
@@ -49,7 +49,7 @@ $ sudo yum install -y docker-ce-17.06.1.ce
 
 {% endhighlight %}
 
-**start docker**
+**Start docker**
 
 {% highlight c %}
 
