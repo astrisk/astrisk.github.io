@@ -84,3 +84,41 @@ To try something more ambitious, you can run an Ubuntu container with:
 Share images, automate workflows, and more with a free Docker ID:
 
 {% endhighlight %}
+
+**Modify Images Path**
+
+{% highlight c %}
+
+$ mkdir /home/docker（你想要docker存放image的目录）
+
+$ systemctl stop docker
+
+$ vi /usr/lib/systemd/system/docker.service
+
+
+[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network.target docker.socket
+Requires=docker.socket
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/docker daemon -g /home/docker -H fd://
+MountFlags=slave
+LimitNOFILE=1048576
+LimitNPROC=1048576
+LimitCORE=infinity
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+$ cp -R /var/lib/docker/* /home/docker/
+
+$ systemctl daemon-reload
+
+$ systemctl start docker
+
+{% endhighlight %}
