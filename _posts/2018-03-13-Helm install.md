@@ -1,7 +1,7 @@
 ---
 title:  "Kubernetes Packages Manager Tools - Helm install "
 date:   2018-03-13 22:37:00
-categories: example
+categories: kubernetes-docker
 ---
 
 
