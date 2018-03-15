@@ -70,3 +70,4 @@ spec:
 ![slave3]({{ site.url }}/images/jenkins/slave3.png)
 
 到此基于kubernetes docker的弹性伸缩CI Jenkins集群就已经部署成功。后面我会做一个业务的slave在构建maven项目执行SoapUI自动化case。并且做一个构建docker的slave来自动化构建docker images.
+而且后面还会把代码扫描平台，持续部署平台也放到kubernetes中来，最后做到提交代码后，自动构建，扫描代码，运行自动化case，自动部署等等。而一切都是基于kubernetes和docker,并且完全使用开源的工具链来打造的。
