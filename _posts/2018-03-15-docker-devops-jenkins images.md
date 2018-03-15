@@ -1,16 +1,19 @@
 ---
-title:  "容器化DEVOPS-弹性CI平台系列之Jenkins 基础images构建"
+title:  "容器化DEVOPS-弹性CI平台系列之Jenkins docker images"
 date:   2018-03-15 12:37:00
 categories: kubernetes-docker
 ---
 
-docker images 制作比较简单，只要熟悉一下相关的命令多操作几遍就行。具体可以参考[DOCKER-Dockerfile详解(一)](https://astrisk.github.io/docker-hackathon/2017/04/17/docker-dockerfile/),[DOCKER-Dockerfile详解(二)]（https://astrisk.github.io/docker-hackathon/2017/04/18/docker-dockerfile2/）以及[DOCKER-DOCKERFILE最佳实践](https://astrisk.github.io/docker-hackathon/2017/04/21/dockerfile-bestpractices/)。
+docker images 制作比较简单，只要熟悉一下相关的命令多操作几遍就行。具体可以参考
+- [DOCKER-Dockerfile详解(一)](https://astrisk.github.io/docker-hackathon/2017/04/17/docker-dockerfile/)
+- [DOCKER-Dockerfile详解(二)]（https://astrisk.github.io/docker-hackathon/2017/04/18/docker-dockerfile2/）
+- [DOCKER-DOCKERFILE最佳实践](https://astrisk.github.io/docker-hackathon/2017/04/21/dockerfile-bestpractices/)
 
 这里简单提下最基本的几点：
 
-1.不直接使用第三方docker images.所有的images自己构建，并且基础镜像使用权限或官方镜像。
-2.尽量使用最小的docker base images。个人主要使用使用alpine Linux或ubuntu Linux。基本不使用CentOS。关于alpine，参考 [alpine linux](https://www.alpinelinux.org/about/) 或 [infoq 这篇文章](http://www.infoq.com/cn/news/2016/01/Alpine-Linux-5M-Docker)
-3.docker container最小权限,尽量不用root
+- 不直接使用第三方docker images.所有的images自己构建，并且基础镜像使用权限或官方镜像。
+- 尽量使用最小的docker base images。个人主要使用使用alpine Linux或ubuntu Linux。基本不使用CentOS。关于alpine，参考 [alpine linux](https://www.alpinelinux.org/about/) 或 [infoq 这篇文章](http://www.infoq.com/cn/news/2016/01/Alpine-Linux-5M-Docker)
+- docker container最小权限,尽量不用root
 
 按照以上几点，我们就可以编写需要的几个Jenkins Dockerfile。
 
