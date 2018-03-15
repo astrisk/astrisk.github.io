@@ -6,7 +6,7 @@ categories: kubernetes-docker
 
 在之前的文章中，我们已经构建好了Jenkins的相关docker images,并且推送到私有register中。现在我们把Jenkins部署到kubernetes集群中。
 
-**创建namespace**
+**创建k8s Jenkins资源文件**
 
 
 {% highlight c %}
