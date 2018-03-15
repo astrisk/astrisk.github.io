@@ -12,7 +12,7 @@ categories: kubernetes-docker
 
 **解决方案**
 
-CI们还是选择开源的Jenkins来做。但是换种方式，就是把整个CI的各个部分，master和各种slave做成一个个独立的docker images，比如Golang有自己的slave docker images ,node有自己的slave images。这样每种技术栈单独维护自己的构建环境docker images，构建的slave如果升级只需要自己的docker images。然后把整个的CI系统放到kubernetes中，让kubernetes来做容器的调度，当没有构建jobs触发时，只运行一个Jenkins master。当某个环境的jobs被触发，kubernetes会自动拉取对应环境的docker images，并启动container,并执行job，而完成job后kubernetes销毁container，回收资源。
+CI还是选择开源的Jenkins来做。但是换种方式，就是把整个CI的各个部分，master和各种slave做成一个个独立的docker images，比如Golang有自己的slave docker images ,node有自己的slave images。这样每种技术栈单独维护自己的构建环境docker images，构建的slave如果升级只需要自己的docker images。然后把整个的CI系统放到kubernetes中，让kubernetes来做容器的调度，当没有构建jobs触发时，只运行一个Jenkins master。当某个环境的jobs被触发，kubernetes会自动拉取对应环境的docker images，并启动container,并执行job，而完成job后kubernetes销毁container，回收资源。
 
 **实现**
 
