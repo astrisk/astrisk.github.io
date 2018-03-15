@@ -31,7 +31,7 @@ categories: kubernetes-docker
 
 在 Configuration of Pod slave nodes处 增加 一个slave，并保存,如下图
 
-![pod]({{ site.url }}/images/jenkins/pod.png)
+![slave]({{ site.url }}/images/jenkins/slave.png)
 
 {% highlight c %}
 
