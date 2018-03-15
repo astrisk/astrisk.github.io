@@ -60,29 +60,10 @@ ENTRYPOINT ["jenkins-slave"]
 
 {% endhighlight %}
 
-**jnlp base entrypoint 文件**
-
-FROM jenkinsci/slave:2.62-alpine
-
-MAINTAINER Qiusheng Zhang <fang_ruo@163.com>
-
-USER root
-
-RUN apk --no-cache add tzdata  && \
-    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-    echo "Asia/Shanghai" > /etc/timezone
-
-USER jenkins
-
-WORKDIR /home/jenkins
-
-COPY jenkins-slave /usr/local/bin/jenkins-slave
-
-ENTRYPOINT ["jenkins-slave"]
-
 **jnlp base image entrypoint 文件：jenkins-slave**
 
 {% highlight c %}
+
 #!/usr/bin/env bash
 
 # The MIT License
