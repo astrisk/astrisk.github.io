@@ -1,5 +1,5 @@
 ---
-title:  "容器化DEVOPS-弹性CI平台系列之部署和配置Jenkins master"
+title:  "容器化DEVOPS-弹性CI平台系列之部署Jenkins master"
 date:   2018-03-15 16:37:00
 categories: kubernetes-docker
 ---
