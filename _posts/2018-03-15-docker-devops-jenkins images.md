@@ -6,7 +6,7 @@ categories: kubernetes-docker
 
 docker images 制作比较简单，只要熟悉一下相关的命令多操作几遍就行。具体可以参考
 - [DOCKER-Dockerfile详解(一)](https://astrisk.github.io/docker-hackathon/2017/04/17/docker-dockerfile/)
-- [DOCKER-Dockerfile详解(二)]（https://astrisk.github.io/docker-hackathon/2017/04/18/docker-dockerfile2/）
+- [DOCKER-Dockerfile详解(二)](https://astrisk.github.io/docker-hackathon/2017/04/18/docker-dockerfile2/)
 - [DOCKER-DOCKERFILE最佳实践](https://astrisk.github.io/docker-hackathon/2017/04/21/dockerfile-bestpractices/)
 
 这里简单提下最基本的几点：
