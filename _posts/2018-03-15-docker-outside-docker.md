@@ -1,6 +1,6 @@
 ---
 title:  "容器化DEVOPS-弹性CI平台系列之docker build docker"
-date:   2018-03-17 07:37:00
+date:   2018-03-16 07:37:00
 categories: kubernetes-docker
 ---
 
