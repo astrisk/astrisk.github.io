@@ -16,11 +16,12 @@ categories: kubernetes-docker
 
 我们主要是CI中构建docker images，所以我选择用docker outside docker的方式来构建docker images。
 
-**DOOD-jenkins slave base**
+**DOD-jenkins slave base**
 
 现在我们需要在jnlp slave的基础上做一个能够构建docker的Jenkins jnlp slave。具体细节大家可以自己进入docker container里，尝试install docker，我这里直接给出Dockerfile
 
 {% highlight c %}
+
 # vim jenkins-namespaces.yaml
 
 FROM jenkinsci/slave:2.62
@@ -53,6 +54,7 @@ COPY jenkins-slave /usr/local/bin/jenkins-slave
 
 ENTRYPOINT ["jenkins-slave"]
 
+{% endhighlight %}
 
 **jenkins-slave文件**
 
@@ -116,10 +118,12 @@ fi
 {% endhighlight %}
 
 **Jenkins中配置DOD slave**
+
 具体如何配置，在之前的blog，Jenkins 集成kubernetes有介绍，具体如下图
 ![dood]({{ site.url }}/images/jenkins/dood.png)
 
 **测试**
+
 在Jenkins中建个测试的job，简单运行docker run hello-world 或docker ps命令，如果运行成功，就表示已经可以用CI系统来构建docker。下图我直接从gitlab repo拉代码，利用Jenkins 构建了docker images,并push到私有的docker register。
 
 ![dod1]({{ site.url }}/images/jenkins/dod1.png)
