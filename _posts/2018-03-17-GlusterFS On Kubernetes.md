@@ -13,7 +13,7 @@ categories: kubernetes-docker
 **install GlusterFS client on all nodes**
 
 {% highlight c %}
-# yum install -y glusterfs glusterfs-fuse
+$ yum install -y glusterfs glusterfs-fuse
 
 {% endhighlight %}
 
