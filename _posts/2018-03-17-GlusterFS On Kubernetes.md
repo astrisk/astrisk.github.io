@@ -1,10 +1,10 @@
 ---
-title:  "kubernetes动态卷-GlusterFS"
+title:  "kubernetes动态卷-GlusterFS踩坑"
 date:   2018-03-17 19:37:00
 categories: kubernetes-docker
 ---
 
-之前按照《kubernetes权威指南》在kubernetes中部署GlusterFS总是不成功，最后各种Google，才搞成功。这之间踩了不少坑。
+之前按照《kubernetes权威指南》在kubernetes中部署GlusterFS总是不成功，最后各种Google，才搞成功。这之间踩了不少坑，这里把主要的坑记录下。
 
 在kubernetes中部署GlusterFS有两个须知：
 1.需要3个或以上kubernetes node节点。
@@ -43,12 +43,12 @@ kubectl delete svc/heketi-storage-endpoints
 
 {% highlight c %}
 
-# vgs
+$ vgs
 /run/lvm/lvmetad.socket: connect failed: Connection refused
 WARNING: Failed to connect to lvmetad. Falling back to device scanning.
 VG                                  #PV #LV #SN Attr   VSize   VFree
 vg_7307f98ae54a8dede4c7664f7cbe7926   1   4   0 wz--n- 199.87g 192.80g
-#  vgremove vg_7307f98ae54a8dede4c7664f7cbe7926
+$  vgremove vg_7307f98ae54a8dede4c7664f7cbe7926
 /run/lvm/lvmetad.socket: connect failed: Connection refused
 WARNING: Failed to connect to lvmetad. Falling back to device scanning.
 Do you really want to remove volume group "vg_7307f98ae54a8dede4c7664f7cbe7926" containing 4 logical volumes? [y/n]: y
@@ -64,14 +64,14 @@ Do you really want to remove active logical volume vg_7307f98ae54a8dede4c7664f7c
 Logical volume "tp_3b2071d61b1cc72e144c3fd16d9f3c56" successfully removed
 Volume group "vg_7307f98ae54a8dede4c7664f7cbe7926" successfully removed
 
-# pvs
-# pvremove /dev/vdc
+$ pvs
+$ pvremove /dev/vdc
 /run/lvm/lvmetad.socket: connect failed: Connection refused
 WARNING: Failed to connect to lvmetad. Falling back to device scanning.
 Labels on physical volume "/dev/vdc" successfully wiped.
 
-# rm -rf /var/lib/heketi
-# rm -rf /var/lib/glusterd
+$ rm -rf /var/lib/heketi
+$ rm -rf /var/lib/glusterd
 
 {% endhighlight %}
 
@@ -100,7 +100,7 @@ parameters:
 **验证**
 
 {% highlight c %}
-# kubectl get storageclass
+$ kubectl get storageclass
 
 NAME             TYPE
 gluster-heketi   kubernetes.io/glusterfs
@@ -148,7 +148,7 @@ spec:
 
 {% highlight c %}
 
-# kubectl get pvc
+$ kubectl get pvc
 
 NAME                   STATUS    VOLUME                                     CAPACITY   ACCESSMODES   STORAGECLASS     AGE
 gluster-defalut-test   Bound     pvc-91647c21-d57d-11e7-bb8b-52540086d79e   2Gi        RWO           slow             13m
