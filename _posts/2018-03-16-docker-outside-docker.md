@@ -22,7 +22,7 @@ categories: kubernetes-docker
 
 {% highlight c %}
 
-# vim jenkins-namespaces.yaml
+$ vim Dockerfile
 
 FROM jenkinsci/slave:2.62
 
