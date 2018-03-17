@@ -37,15 +37,13 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 VOLUME "$USER_HOME_DIR/.m2"
 
-
 USER jenkins
-
 
 {% endhighlight %}
 
 **Jenkins配置maven slave**
 
-在Jenkins管理界面左上角 Jenkins -> 系统管理 -> 系统设置 -> Kubernetes Cloud中增加slave
+在Jenkins管理界面左上角 Jenkins -> 系统管理 -> 系统设置 -> Kubernetes Cloud中增加slave。
 
 {% highlight c %}
 
@@ -72,15 +70,15 @@ spec:
         server: x.x.x.x
         path: "/home/nfs/.m2"  
 
-
 {% endhighlight %}
+
+参考下图
 
 ![maven]({{ site.url }}/images/jenkins/maven.png)
 
 **测试**
 
 在Jenkins中新建一个job，在Restrict where this project can be run 中填写maven slave对应的label（我的是maven3.3.9）即可
-
 
 ![maven2]({{ site.url }}/images/jenkins/maven2.png)
 
