@@ -159,6 +159,3 @@ $ echo y | ./android update sdk --no-ui --all --filter   build-tools-27.0.1,buil
 ![android]({{ site.url }}/images/jenkins/android.png)
 
 
-
-![maven4]({{ site.url }}/images/jenkins/maven4.png)
-
