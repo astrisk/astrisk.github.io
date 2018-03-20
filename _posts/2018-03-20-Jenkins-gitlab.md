@@ -16,13 +16,13 @@ categories: kubernetes-docker
 
 ![jenkins2]({{ site.url }}/images/jenkins/jenkins2.png)
 
-![gitalb]({{ site.url }}/images/jenkins/gitalb.png)
+![gitlab]({{ site.url }}/images/jenkins/gitlab.png)
 
 - Jenkins中配置Gitlab
 
 jenkins中Gitlab的配置在Jenkins ->系统管理 -> 系统设置
 
-![gitalb2]({{ site.url }}/images/jenkins/gitalb2.png)
+![gitlab2]({{ site.url }}/images/jenkins/gitlab2.png)
 
 完成后，可以点击TestConnection，如果显示Success，即可。
 
@@ -43,7 +43,7 @@ Jenkins和Gitalb的集成，是通过Gitlab的webhooks触发来Jenkins job的。
 
 - 所以需要进入对应的代码repo中，配置触发Jenkins job的webhook（需要gitlab repo的master权限）
 
-![gitalb3]({{ site.url }}/images/jenkins/gitalb3.png)
+![gitlab3]({{ site.url }}/images/jenkins/gitlab3.png)
 
 ![jenkins4]({{ site.url }}/images/jenkins/jenkins4.png)
 
