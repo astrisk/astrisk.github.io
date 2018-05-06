@@ -54,6 +54,9 @@ $ sudo su
 /usr/bin/python /usr/local/bin/ssserver -c /etc/ss-conf.json -d start
 exit 0
 
+{% endhighlight %}
+
+{% highlight c %}
 
 # chmod +x /etc/init.d/shadowsocks.sh
 
