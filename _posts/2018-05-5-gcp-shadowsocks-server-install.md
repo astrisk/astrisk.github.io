@@ -1,4 +1,5 @@
-title:  "在GCP ubuntu上部署shadowsocks服务器"
+---
+itle:  "在GCP ubuntu上部署shadowsocks服务器"
 date:   2018-05-5 08:37:00
 categories: kubernetes-docker
 ---
